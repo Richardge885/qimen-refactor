@@ -1,114 +1,154 @@
-const data = require('./wnl.json');
-const { liushijiazi } = require('./commonInfo');
-
-function timeInfo(date, time, method = 'none', number = 0) {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.timeInfo = timeInfo;
+const wnl_json_1 = __importDefault(require("../wnl.json"));
+const commonInfo_1 = require("./commonInfo");
+const calendarData = wnl_json_1.default;
+function timeInfo(date, time, method = '', number = 0) {
     let i = 0;
     let hour = time.charAt(0) + time.charAt(1);
     switch (hour) {
         case '01':
-            hour = 1;
+            hour = '1';
             break;
         case '02':
-            hour = 2;
+            hour = '2';
             break;
         case '03':
-            hour = 3;
+            hour = '3';
             break;
         case '04':
-            hour = 4;
+            hour = '4';
             break;
         case '05':
-            hour = 5;
+            hour = '5';
             break;
         case '06':
-            hour = 6;
+            hour = '6';
             break;
         case '07':
-            hour = 7;
+            hour = '7';
             break;
         case '08':
-            hour = 8;
+            hour = '8';
             break;
         case '09':
-            hour = 9;
+            hour = '9';
+            break;
+        case '1':
+            hour = '1';
+            break;
+        case '2':
+            hour = '2';
+            break;
+        case '3':
+            hour = '3';
+            break;
+        case '4':
+            hour = '4';
+            break;
+        case '5':
+            hour = '5';
+            break;
+        case '6':
+            hour = '6';
+            break;
+        case '7':
+            hour = '7';
+            break;
+        case '8':
+            hour = '8';
+            break;
+        case '9':
+            hour = '9';
             break;
     }
     while (true) {
-        if (date == data[i].公历日期) {
+        if (date == calendarData[i].公历日期) {
             if (hour == '23') {
-                hour = 0;
+                hour = '0';
                 i++;
             }
-            let nianganzhi = data[i].年干支;
-            let yueganzhi = data[i].月干支;
-            let riganzhi = data[i].日干支;
+            let nianganzhi = calendarData[i].年干支;
+            let yueganzhi = calendarData[i].月干支;
+            let riganzhi = calendarData[i].日干支;
             let shiganzhi;
-            if (method == 'jushu') {
-                shiganzhi = getShiZhu(riganzhi, hour.toString());
-            } else if (method == 'shichen') {
-                if (number != 12) {
-                    switch (number % 12) {
-                        case 1:
-                            hour = 0;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 2:
-                            hour = 2;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 3:
-                            hour = 4;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 4:
-                            hour = 6;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 5:
-                            hour = 8;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 6:
-                            hour = 10;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 7:
-                            hour = 12;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 8:
-                            hour = 14;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 9:
-                            hour = 16;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 10:
-                            hour = 18;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 11:
-                            hour = 20;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
-                        case 0:
-                            hour = 22;
-                            shiganzhi = getShiZhu(riganzhi, hour.toString());
-                            break;
+            if (method != '' && number > 0) {
+                if (method == '局数') {
+                    shiganzhi = getShiZhu(riganzhi, hour);
+                }
+                else if (method == '时辰') {
+                    if (number != 12) {
+                        switch (number % 12) {
+                            case 1:
+                                hour = '0';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 2:
+                                hour = '2';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 3:
+                                hour = '4';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 4:
+                                hour = '6';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 5:
+                                hour = '8';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 6:
+                                hour = '10';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 7:
+                                hour = '12';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 8:
+                                hour = '14';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 9:
+                                hour = '16';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 10:
+                                hour = '18';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 11:
+                                hour = '20';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                            case 0:
+                                hour = '22';
+                                shiganzhi = getShiZhu(riganzhi, hour);
+                                break;
+                        }
                     }
-                } else {
-                    hour = 22;
-                    shiganzhi = getShiZhu(riganzhi, hour.toString());
+                    else {
+                        hour = '22';
+                        shiganzhi = getShiZhu(riganzhi, hour);
+                    }
                 }
-            } else if (method == 'zhichou') {
-                if (number % 60 == 0) {
-                    shiganzhi = liushijiazi[59];
-                } else {
-                    shiganzhi = liushijiazi[(number % 60) - 1];
+                else if (method == '制筹') {
+                    if (number % 60 == 0) {
+                        shiganzhi = commonInfo_1.liushijiazi[59];
+                    }
+                    else {
+                        shiganzhi = commonInfo_1.liushijiazi[(number % 60) - 1];
+                    }
                 }
-            } else {
-                shiganzhi = getShiZhu(riganzhi, hour.toString());
+            }
+            else {
+                shiganzhi = getShiZhu(riganzhi, hour);
             }
             let jieqi = getSeason(i);
             return {
@@ -125,19 +165,18 @@ function timeInfo(date, time, method = 'none', number = 0) {
         i++;
     }
 }
-
 function getSeason(i) {
     for (let j = 31; j >= 0; j++) {
-        if (data[i].节气 === '') {
+        if (calendarData[i].节气 === '') {
             i--;
-        } else {
+        }
+        else {
             return {
-                season: data[i].节气,
+                season: calendarData[i].节气,
             };
         }
     }
 }
-
 function getShiZhu(date, hour) {
     switch (date.charAt(0)) {
         case '甲':
@@ -632,7 +671,3 @@ function getShiZhu(date, hour) {
             }
     }
 }
-
-module.exports = {
-    timeInfo,
-};

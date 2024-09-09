@@ -1,4 +1,4 @@
-const liushijiazi = [
+export const liushijiazi = [
     '甲子',
     '乙丑',
     '丙寅',
@@ -60,7 +60,7 @@ const liushijiazi = [
     '壬戌',
     '癸亥',
 ];
-const jieqiYuanShu = {
+export const jieqiYuanShu = {
     立春: { 上: 8, 中: 5, 下: 2 },
     雨水: { 上: 9, 中: 6, 下: 3 },
     惊蛰: { 上: 1, 中: 7, 下: 4 },
@@ -85,9 +85,4 @@ const jieqiYuanShu = {
     冬至: { 上: 1, 中: 7, 下: 4 },
     小寒: { 上: 2, 中: 8, 下: 5 },
     大寒: { 上: 3, 中: 9, 下: 6 },
-};
-
-module.exports = {
-    jieqiYuanShu,
-    liushijiazi,
 };
