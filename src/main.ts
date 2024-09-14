@@ -66,7 +66,7 @@ export function paipan({
 paipan({ // Test
     paipanMethod: '飞盘',
     date: '2024/9/14', //'yyyy/m/d',
-    time: '16:35', // '00:00',
+    time: '22:11', // '00:00',
     baoshuMethod: '', // 制筹, 时辰, 局数
     baoshu: 0,
     ziXuanJu: ''

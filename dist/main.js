@@ -42,7 +42,7 @@ function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu
 paipan({
     paipanMethod: '飞盘',
     date: '2024/9/14',
-    time: '16:35',
+    time: '22:11',
     baoshuMethod: '',
     baoshu: 0,
     ziXuanJu: ''

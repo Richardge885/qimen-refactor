@@ -11,7 +11,7 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
     const anGanZhi = (0, commonPaipanFunctions_1.paiAnGanZhi)(xunShou, diPanGan, dun);
     const zhiShiPosition = getZhiShiPosition(anGanZhi, shizhu);
     const men = paiBaMen(fuShi.zhishi, zhiShiPosition);
-    const xing = paiXing(fuShi.zhifu, diPanGan, dun, shizhu);
+    const xing = paiXing(fuShi.zhifu, diPanGan, shizhu);
     const diPanShen = paiDiPanShen(xunShouGan, dun, diPanGan);
     const tianPanShen = paiTianPanShen(fuShi.zhifu, dun, xing);
     const tianPanGan = paiTianPanGan(fuShi.zhifu, dun, xing, xunShou);
@@ -359,7 +359,7 @@ function paiBaMen(zhiShi, zhiShiPosition) {
     }
     return array;
 }
-function paiXing(zhiFu, diPanGanList, dun, shizhu) {
+function paiXing(zhiFu, diPanGanList, shizhu) {
     let xingList;
     let shigan;
     if (zhiFu == '天蓬') {

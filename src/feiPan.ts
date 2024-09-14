@@ -220,7 +220,7 @@ export function feiPan({
     const anGanZhi = paiAnGanZhi(xunShou, diPanGan, dun)!;
     const zhiShiPosition = getZhiShiPosition(anGanZhi, shizhu)!;
     const men = paiBaMen(fuShi.zhishi, zhiShiPosition)!;
-    const xing = paiXing(fuShi.zhifu, diPanGan, dun, shizhu)!;
+    const xing = paiXing(fuShi.zhifu, diPanGan, shizhu)!;
     const diPanShen = paiDiPanShen(xunShouGan, dun, diPanGan)!;
     const tianPanShen = paiTianPanShen(fuShi.zhifu, dun, xing)!;
     const tianPanGan = paiTianPanGan(fuShi.zhifu, dun, xing, xunShou);
@@ -456,15 +456,6 @@ export function feiPan({
         i++;
     });
 
-    // Maxing
-    // switch (maXing) {
-    //     default:
-    // }
-
-    // KongWang
-    // switch () {
-    // }
-
     return result;
 }
 
@@ -587,7 +578,7 @@ function paiBaMen(zhiShi: string, zhiShiPosition: number) {
     return array;
 }
 
-function paiXing(zhiFu: string, diPanGanList: string[], dun: string, shizhu: string) {
+function paiXing(zhiFu: string, diPanGanList: string[], shizhu: string) {
     let xingList;
     let shigan;
     if (zhiFu == '天蓬') {
