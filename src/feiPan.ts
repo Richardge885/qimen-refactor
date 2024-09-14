@@ -1,4 +1,4 @@
-import { paiDiPanGan, zhaoXunShou, dingFuShi, paiAnGanZhi } from './commonPaipanFunctions';
+import { paiDiPanGan, zhaoXunShou, dingFuShi, paiAnGanZhi, findXunShouGan, rearrangeArray, gongWangShuai, getMaXing, getKongWang } from './commonPaipanFunctions';
 import { liushijiazi } from './commonInfo';
 
 interface FullTimeInformation {
@@ -17,9 +17,14 @@ interface PanJuInformation {
     allTimeInformation: FullTimeInformation,
     zhiFu: string,
     zhiShi: string,
+    xunShou: string
     panJuResult: {
-        gong1: {
-            gongWangShuai: string;
+        kanGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -32,10 +37,14 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
+            shenSha: string[],
         },
-        gong2: {
-            gongWangShuai: string;
+        kunGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -48,10 +57,14 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
+            shenSha: string[],
         },
-        gong3: {
-            gongWangShuai: string;
+        zhenGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -64,10 +77,14 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
+            shenSha: string[],
         },
-        gong4: {
-            gongWangShuai: string;
+        xunGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -80,10 +97,14 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
+            shenSha: string[],
         },
-        gong5: {
-            gongWangShuai: string;
+        zhongGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -96,10 +117,14 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
+            shenSha: string[],
         },
-        gong6: {
-            gongWangShuai: string;
+        qianGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -112,10 +137,14 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
+            shenSha: string[],
         },
-        gong7: {
-            gongWangShuai: string;
+        duiGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -128,10 +157,14 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
+            shenSha: string[],
         },
-        gong8: {
-            gongWangShuai: string;
+        genGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -144,10 +177,14 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
+            shenSha: string[],
         },
-        gong9: {
-            gongWangShuai: string;
+        liGong: {
+            gongWangShuai: string,
+            maXing: boolean,
+            gongKong: boolean,
+            tianPanYiKong: boolean,
+            diPanYiKong: boolean,
             tianPanShen: string,
             diPanShen: string,
             xing: string,
@@ -160,8 +197,8 @@ interface PanJuInformation {
             ZhengGeExplnation: string,
             FuGe: string,
             FuGeExplnation: string,
-            shenSha: [];
-        };
+            shenSha: string[],
+        },
     };
 }
 
@@ -175,20 +212,23 @@ export function feiPan({
     jieqi,
     dun,
     jushu,
-}: FullTimeInformation) {
-
-    const diPanGanList = paiDiPanGan(dun, jushu)!; // return array starting from 坎一宫
+}: FullTimeInformation): PanJuInformation {
     const xunShou = zhaoXunShou(shizhu, liushijiazi)!;
-    const fuShi = dingFuShi(diPanGanList, xunShou)!;
-    const anGanZhi = paiAnGanZhi(xunShou, diPanGanList, dun)!;
+    const xunShouGan = findXunShouGan(xunShou);
+    const diPanGan = paiDiPanGan(dun, jushu)!; // return array starting from 坎一宫
+    const fuShi = dingFuShi(diPanGan, xunShou)!;
+    const anGanZhi = paiAnGanZhi(xunShou, diPanGan, dun)!;
     const zhiShiPosition = getZhiShiPosition(anGanZhi, shizhu)!;
-    const baMen = paiBaMen(fuShi.zhishi, zhiShiPosition)!;
-    const xing = paiXing(fuShi.zhifu, diPanGanList, dun, shizhu)!;
-    console.log(anGanZhi)
-    console.log(baMen);
-    console.log(xing);
+    const men = paiBaMen(fuShi.zhishi, zhiShiPosition)!;
+    const xing = paiXing(fuShi.zhifu, diPanGan, dun, shizhu)!;
+    const diPanShen = paiDiPanShen(xunShouGan, dun, diPanGan)!;
+    const tianPanShen = paiTianPanShen(fuShi.zhifu, dun, xing)!;
+    const tianPanGan = paiTianPanGan(fuShi.zhifu, dun, xing, xunShou);
+    const gongWeiWangShuai = gongWangShuai(jieqi, true)!;
+    const maXing = getMaXing(shizhu.charAt(1));
+    const kongWang = getKongWang(xunShou, true);
 
-    return {
+    let result: PanJuInformation = {
         allTimeInformation: {
             date: date,
             time: time,
@@ -200,18 +240,297 @@ export function feiPan({
             dun: dun,
             jushu: jushu,
         },
+        xunShou: xunShou,
         zhiFu: fuShi.zhifu,
         zhiShi: fuShi.zhishi,
-        xunShou: xunShou,
         panJuResult: {
-            gong1: {
-                diPanGan: diPanGanList[0],
-                anGan: anGanZhi[0].charAt(0),
-                anZhi: anGanZhi[0].charAt(1),
+            kanGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
             },
-        }
+            kunGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
+            },
+            zhenGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
+            },
+            xunGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
+            },
+            zhongGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
+            },
+            qianGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
+            },
+            duiGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
+            },
+            genGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
+            },
+            liGong: {
+                gongWangShuai: '',
+                maXing: false,
+                gongKong: false,
+                tianPanYiKong: false,
+                diPanYiKong: false,
+                tianPanShen: '',
+                diPanShen: '',
+                xing: '',
+                men: '',
+                tianPanGan: '',
+                diPanGan: '',
+                anGan: '',
+                anZhi: '',
+                ZhengGe: '',
+                ZhengGeExplnation: '',
+                FuGe: '',
+                FuGeExplnation: '',
+                shenSha: [],
+            }
+        },
     };
+
+    let i = 0;
+    Object.keys(result.panJuResult).forEach(gong => {
+        const gongObject = result.panJuResult[gong as keyof typeof result.panJuResult];
+        gongObject.diPanGan = diPanGan[i];
+        gongObject.tianPanGan = tianPanGan[i];
+        gongObject.tianPanShen = tianPanShen[i];
+        gongObject.diPanShen = diPanShen[i];
+        gongObject.men = men[i];
+        gongObject.xing = xing[i];
+        gongObject.anGan = anGanZhi[i].charAt(0);
+        gongObject.anZhi = anGanZhi[i].charAt(1);
+        gongObject.gongWangShuai = gongWeiWangShuai[i];
+
+        if (gongObject.diPanGan == kongWang[2]) {
+            gongObject.diPanYiKong = true;
+        }
+        if (gongObject.tianPanGan == kongWang[2]) {
+            gongObject.tianPanYiKong = true;
+        }
+        if (i == kongWang[0] || i == kongWang[1]) {
+            gongObject.gongKong = true;
+        }
+        if (i == maXing) {
+            gongObject.maXing = true;
+        }
+
+        i++;
+    });
+
+    // Maxing
+    // switch (maXing) {
+    //     default:
+    // }
+
+    // KongWang
+    // switch () {
+    // }
+
+    return result;
 }
+
+function paiTianPanGan(zhiFu: string, dun: string, xing: string[], xunShou: string): string[] {
+    let tianPanGan: string[];
+    switch (xunShou) {
+        default:
+            tianPanGan = ['戊', '己', '庚', '辛', '壬', '癸', '丁', '丙', '乙'];
+            break;
+        case '甲戌':
+            tianPanGan = ['己', '庚', '辛', '壬', '癸', '丁', '丙', '乙', '戊'];
+            break;
+        case '甲申':
+            tianPanGan = ['庚', '辛', '壬', '癸', '丁', '丙', '乙', '戊', '己'];
+            break;
+        case '甲午':
+            tianPanGan = ['辛', '壬', '癸', '丁', '丙', '乙', '戊', '己', '庚'];
+            break;
+        case '甲辰':
+            tianPanGan = ['壬', '癸', '丁', '丙', '乙', '戊', '己', '庚', '辛'];
+            break;
+        case '甲寅':
+            tianPanGan = ['癸', '丁', '丙', '乙', '戊', '己', '庚', '辛', '壬'];
+            break;
+    }
+    let tianPanZhiFuPosition: number;
+    for (let i = 0; i < 9; i++) {
+        if (xing[i] == zhiFu) {
+            tianPanZhiFuPosition = i;
+        }
+    }
+    return rearrangeArray(tianPanGan, tianPanZhiFuPosition!, dun)!;
+}
+
+function paiTianPanShen(zhiFu: string, dun: string, xing: string[]): string[] {
+    const yinDunShen = ['值符', '九天', '九地', '玄武', '太常', '白虎', '六合', '太阴', '螣蛇'];
+    const yangDunShen = ['值符', '螣蛇', '太阴', '六合', '勾陈', '太常', '朱雀', '九地', '九天'];
+    let tianPanXunShouPosition: number;
+    for (let i = 0; i < 9; i++) {
+        if (xing[i] == zhiFu) {
+            tianPanXunShouPosition = i;
+        }
+    }
+    if (dun == '阳') {
+        return rearrangeArray(yangDunShen, tianPanXunShouPosition!)
+    } else {
+        return rearrangeArray(yinDunShen, tianPanXunShouPosition!)
+    }
+}
+
+function paiDiPanShen(xunShouGan: string, dun: string, diPanGanList: string[]): string[] {
+    const yinDunShen = ['值符', '九天', '九地', '玄武', '太常', '白虎', '六合', '太阴', '螣蛇'];
+    const yangDunShen = ['值符', '螣蛇', '太阴', '六合', '勾陈', '太常', '朱雀', '九地', '九天'];
+    let diPanXunShouPosition: number;
+    for (let i = 0; i < 9; i++) {
+        if (diPanGanList[i] == xunShouGan) {
+            diPanXunShouPosition = i;
+        }
+    }
+    if (dun == '阳') {
+        return rearrangeArray(yangDunShen, diPanXunShouPosition!)
+    } else {
+        return rearrangeArray(yinDunShen, diPanXunShouPosition!)
+    }
+}
+
 
 function getZhiShiPosition(anGanZhi: string[], shizhu: string) {
     let position = 0;
@@ -320,37 +639,6 @@ function paiXing(zhiFu: string, diPanGanList: string[], dun: string, shizhu: str
             position = i;
         }
     }
-    // if (dun == '阴') {
-    //     switch (position) {
-    //         default:
-    //             position = 0;
-    //             break;
-    //         case 1:
-    //             position = 8;
-    //             break;
-    //         case 2:
-    //             position = 7;
-    //             break;
-    //         case 3:
-    //             position = 6;
-    //             break;
-    //         case 4:
-    //             position = 5;
-    //             break;
-    //         case 5:
-    //             position = 4;
-    //             break;
-    //         case 6:
-    //             position = 3;
-    //             break;
-    //         case 7:
-    //             position = 2;
-    //             break;
-    //         case 8:
-    //             position = 1;
-    //             break;
-    //     }
-    // }
     let array = ['', '', '', '', '', '', '', '', ''];
     for (let i = 0; i < array.length; i++) {
         const index = (i + position) % array.length;
@@ -360,6 +648,3 @@ function paiXing(zhiFu: string, diPanGanList: string[], dun: string, shizhu: str
     return array;
 }
 
-function paiTianPanShen() { }
-
-function paiDiPanShen() { }
