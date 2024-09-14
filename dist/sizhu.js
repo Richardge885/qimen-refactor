@@ -77,10 +77,7 @@ function timeInfo(date, time, method = '', number = 0) {
             let riganzhi = calendarData[i].日干支;
             let shiganzhi;
             if (method != '' && number > 0) {
-                if (method == '局数') {
-                    shiganzhi = getShiZhu(riganzhi, hour);
-                }
-                else if (method == '时辰') {
+                if (method == '时辰') {
                     if (number != 12) {
                         switch (number % 12) {
                             case 1:
@@ -145,6 +142,9 @@ function timeInfo(date, time, method = '', number = 0) {
                     else {
                         shiganzhi = commonInfo_1.liushijiazi[(number % 60) - 1];
                     }
+                }
+                else {
+                    shiganzhi = getShiZhu(riganzhi, hour);
                 }
             }
             else {

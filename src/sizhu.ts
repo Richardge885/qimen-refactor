@@ -92,9 +92,7 @@ export function timeInfo(date: string, time: string, method = '', number = 0) {
             let riganzhi = calendarData[i].日干支;
             let shiganzhi;
             if (method != '' && number > 0) {
-                if (method == '局数') {
-                    shiganzhi = getShiZhu(riganzhi, hour);
-                } else if (method == '时辰') {
+                if (method == '时辰') {
                     if (number != 12) {
                         switch (number % 12) {
                             case 1:
@@ -156,6 +154,8 @@ export function timeInfo(date: string, time: string, method = '', number = 0) {
                     } else {
                         shiganzhi = liushijiazi[(number % 60) - 1];
                     }
+                } else {
+                    shiganzhi = getShiZhu(riganzhi, hour);
                 }
             } else {
                 shiganzhi = getShiZhu(riganzhi, hour);
@@ -168,7 +168,7 @@ export function timeInfo(date: string, time: string, method = '', number = 0) {
                 nian: nianganzhi,
                 yue: yueganzhi,
                 ri: riganzhi,
-                shi: shiganzhi,
+                shi: shiganzhi!,
                 jieqi: jieqi!.season,
                 time: time,
             };

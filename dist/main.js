@@ -3,20 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.paipan = paipan;
 const sizhu_1 = require("./sizhu");
 const dingJu_1 = require("./dingJu");
+const feiPan_1 = require("./feiPan");
 ;
-function main() {
-    console.log(paipan({
-        paipanMethod: '飞盘',
-        date: '2024/9/9',
-        time: '17:35',
-        baoshuMethod: '',
-        baoshu: 0,
-        dun: '',
-        ziXuanJu: ''
-    }));
-}
-function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu = 0, dun = '', chaiBu = true, ziXuanJu = '' }) {
+function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu = 0, chaiBu = true, ziXuanJu = '' }) {
     const timeData = (0, sizhu_1.timeInfo)(date, time, baoshuMethod, baoshu);
+    let paipanResult;
     let dingJuData = (0, dingJu_1.dingJu)({
         jieqi: timeData.jieqi,
         rizhu: timeData.ri,
@@ -25,17 +16,7 @@ function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu
         chaiBu: chaiBu,
         ziXuanJu: ziXuanJu,
     });
-    switch (paipanMethod) {
-        default:
-            break;
-        case '飞盘':
-            break;
-        case '张氏':
-            break;
-        case '星飞门转':
-            break;
-    }
-    return {
+    const fullTimeInformation = {
         date: timeData.yangli,
         time: timeData.time,
         nianzhu: timeData.nian,
@@ -46,5 +27,23 @@ function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu
         dun: dingJuData.dun,
         jushu: dingJuData.jushu,
     };
+    switch (paipanMethod) {
+        default:
+            break;
+        case '飞盘':
+            console.log((0, feiPan_1.feiPan)(fullTimeInformation));
+            break;
+        case '张氏':
+            break;
+        case '星飞门转':
+            break;
+    }
 }
-main();
+paipan({
+    paipanMethod: '飞盘',
+    date: '2024/9/14',
+    time: '16:35',
+    baoshuMethod: '',
+    baoshu: 0,
+    ziXuanJu: ''
+});

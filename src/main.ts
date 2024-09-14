@@ -1,9 +1,6 @@
 import { timeInfo } from './sizhu';
 import { dingJu } from './dingJu';
-// const { feiPan } = require('');
-// const { zhuanPan } = require('');
-// const { zhangShi } = require('');
-// const { xingFeiMenZhuan } = require('');
+import { feiPan } from './feiPan';
 
 interface PaiPanInput {
     paipanMethod?: string,
@@ -11,61 +8,36 @@ interface PaiPanInput {
     time: string, // '00:00',
     baoshuMethod?: string, // 制筹, 时辰, 局数
     baoshu?: number,
-    dun?: string, // 阴阳
     chaiBu?: boolean,
     ziXuanJu?: string;
 };
 
-function main() {
-    console.log(paipan({
-        paipanMethod: '飞盘',
-        date: '2024/9/9', //'yyyy/m/d',
-        time: '17:35', // '00:00',
-        baoshuMethod: '', // 制筹, 时辰, 局数
-        baoshu: 0,
-        dun: '', // 阴阳
-        ziXuanJu: ''
-    }));
-}
-
+/**
+ * 
+ * 如果baoshuMethod = '' 和 baoshu == 0 则使用 ziXuanJu
+ */
 export function paipan({
     paipanMethod = '转盘',
     date, //'yyyy/m/d',
     time, // '00:00',
     baoshuMethod = '', // 制筹, 时辰, 局数
     baoshu = 0,
-    dun = '', // 阴阳 // TODO 单独输入遁看其有些没有意义
     chaiBu = true,
     ziXuanJu = ''
 }: PaiPanInput) {
-    // NOTE 提取四柱和节气
-    const timeData = timeInfo(date, time, baoshuMethod, baoshu);
+    const timeData = timeInfo(date, time, baoshuMethod, baoshu); // 提取四柱和节气
+    let paipanResult;
 
-    // NOTE 提取遁与局数
-    // TODO 尚未完成
-    let dingJuData = dingJu({
+    let dingJuData = dingJu({ // 提取遁与局数
         jieqi: timeData.jieqi,
         rizhu: timeData.ri,
-        //dun: dun, // TODO 单独输入遁看其有些没有意义
         baoshuQiJuMethod: baoshuMethod,
         baoshu: baoshu,
         chaiBu: chaiBu,
         ziXuanJu: ziXuanJu,
     });
 
-    switch (paipanMethod) {
-        // 默认排盘为转盘
-        default:
-            break;
-        case '飞盘':
-            break;
-        case '张氏':
-            break;
-        case '星飞门转':
-            break;
-    }
-
-    return {
+    const fullTimeInformation = {
         date: timeData.yangli,
         time: timeData.time,
         nianzhu: timeData.nian,
@@ -76,7 +48,26 @@ export function paipan({
         dun: dingJuData.dun,
         jushu: dingJuData.jushu,
     };
+
+    switch (paipanMethod) {
+        default: // 默认排盘为转盘
+            break;
+        case '飞盘':
+            console.log(feiPan(fullTimeInformation));
+            break;
+        case '张氏':
+            break;
+        case '星飞门转':
+            break;
+    }
+
 }
 
-
-main();
+paipan({ // Test
+    paipanMethod: '飞盘',
+    date: '2024/9/14', //'yyyy/m/d',
+    time: '16:35', // '00:00',
+    baoshuMethod: '', // 制筹, 时辰, 局数
+    baoshu: 0,
+    ziXuanJu: ''
+});
