@@ -1,6 +1,6 @@
 export function getKongWang(xunShou: string, wantYiKong: boolean) {
     let gongKong: (string | number | undefined)[] = [0, undefined, ''];
-    let yiKong: string
+    let yiKong: string;
     switch (xunShou) {
         default:
             gongKong[0] = 0;
@@ -87,24 +87,23 @@ export function gongWangShuai(jieqi: string, feiPan: boolean) {
             return ['旺', '囚', '胎', '没', '相', '休', '废', '相', '死'];
         }
     } else {
-
     }
 }
 
 export function findXunShouGan(xunshou: string): string {
     switch (xunshou) {
         default:
-            return '戊'
+            return '戊';
         case '甲戌':
-            return '己'
+            return '己';
         case '甲申':
-            return '庚'
+            return '庚';
         case '甲午':
-            return '辛'
+            return '辛';
         case '甲辰':
-            return '壬'
+            return '壬';
         case '甲寅':
-            return '癸'
+            return '癸';
     }
 }
 
@@ -350,62 +349,186 @@ export function dingKongWang(xunshou: string) {
     }
 }
 
-export function paiAnGanZhi(xunshou: string, diPanGanList: string[], dun: string) {
+export function paiAnGanZhi(
+    xunshou: string,
+    diPanGanList: string[],
+    dun: string,
+) {
     let anGanZhiList: string[];
     let xunShouLiuYi: string;
     let anGanZhiStartingPosition: number = 0;
     if (dun == '阳') {
         switch (xunshou) {
             default:
-                anGanZhiList = ['癸酉', '乙丑', '丙寅', '丁卯', '戊辰', '己巳', '庚午', '辛未', '壬申'];
-                xunShouLiuYi = '戊'
+                anGanZhiList = [
+                    '癸酉',
+                    '乙丑',
+                    '丙寅',
+                    '丁卯',
+                    '戊辰',
+                    '己巳',
+                    '庚午',
+                    '辛未',
+                    '壬申',
+                ];
+                xunShouLiuYi = '戊';
                 break;
             case '甲戌':
-                anGanZhiList = ['癸未', '乙亥', '丙子', '丁丑', '戊寅', '己卯', '庚辰', '辛巳', '壬午'];
-                xunShouLiuYi = '己'
+                anGanZhiList = [
+                    '癸未',
+                    '乙亥',
+                    '丙子',
+                    '丁丑',
+                    '戊寅',
+                    '己卯',
+                    '庚辰',
+                    '辛巳',
+                    '壬午',
+                ];
+                xunShouLiuYi = '己';
                 break;
             case '甲申':
-                anGanZhiList = ['癸巳', '乙酉', '丙戌', '丁亥', '戊子', '己丑', '庚寅', '辛卯', '壬辰'];
-                xunShouLiuYi = '庚'
+                anGanZhiList = [
+                    '癸巳',
+                    '乙酉',
+                    '丙戌',
+                    '丁亥',
+                    '戊子',
+                    '己丑',
+                    '庚寅',
+                    '辛卯',
+                    '壬辰',
+                ];
+                xunShouLiuYi = '庚';
                 break;
             case '甲午':
-                anGanZhiList = ['癸卯', '乙未', '丙申', '丁酉', '戊戌', '己亥', '庚子', '辛丑', '壬寅'];
-                xunShouLiuYi = '辛'
+                anGanZhiList = [
+                    '癸卯',
+                    '乙未',
+                    '丙申',
+                    '丁酉',
+                    '戊戌',
+                    '己亥',
+                    '庚子',
+                    '辛丑',
+                    '壬寅',
+                ];
+                xunShouLiuYi = '辛';
                 break;
             case '甲辰':
-                anGanZhiList = ['癸丑', '乙巳', '丙午', '丁未', '戊申', '己酉', '庚戌', '辛亥', '壬子'];
-                xunShouLiuYi = '壬'
+                anGanZhiList = [
+                    '癸丑',
+                    '乙巳',
+                    '丙午',
+                    '丁未',
+                    '戊申',
+                    '己酉',
+                    '庚戌',
+                    '辛亥',
+                    '壬子',
+                ];
+                xunShouLiuYi = '壬';
                 break;
             case '甲寅':
-                anGanZhiList = ['癸亥', '乙卯', '丙辰', '丁巳', '戊午', '己未', '庚申', '辛酉', '壬戌'];
-                xunShouLiuYi = '癸'
+                anGanZhiList = [
+                    '癸亥',
+                    '乙卯',
+                    '丙辰',
+                    '丁巳',
+                    '戊午',
+                    '己未',
+                    '庚申',
+                    '辛酉',
+                    '壬戌',
+                ];
+                xunShouLiuYi = '癸';
                 break;
         }
     } else {
         switch (xunshou) {
             default:
-                anGanZhiList = ['癸酉', '壬申', '乙丑', '丙寅', '丁卯', '戊辰', '己巳', '庚午', '辛未'];
-                xunShouLiuYi = '戊'
+                anGanZhiList = [
+                    '癸酉',
+                    '壬申',
+                    '乙丑',
+                    '丙寅',
+                    '丁卯',
+                    '戊辰',
+                    '己巳',
+                    '庚午',
+                    '辛未',
+                ];
+                xunShouLiuYi = '戊';
                 break;
             case '甲戌':
-                anGanZhiList = ['癸未', '壬午', '辛巳', '庚辰', '己卯', '戊寅', '丁丑', '丙子', '乙亥'];
-                xunShouLiuYi = '己'
+                anGanZhiList = [
+                    '癸未',
+                    '壬午',
+                    '辛巳',
+                    '庚辰',
+                    '己卯',
+                    '戊寅',
+                    '丁丑',
+                    '丙子',
+                    '乙亥',
+                ];
+                xunShouLiuYi = '己';
                 break;
             case '甲申':
-                anGanZhiList = ['癸巳', '壬辰', '辛卯', '庚寅', '己丑', '戊子', '丁亥', '丙戌', '乙酉'];
-                xunShouLiuYi = '庚'
+                anGanZhiList = [
+                    '癸巳',
+                    '壬辰',
+                    '辛卯',
+                    '庚寅',
+                    '己丑',
+                    '戊子',
+                    '丁亥',
+                    '丙戌',
+                    '乙酉',
+                ];
+                xunShouLiuYi = '庚';
                 break;
             case '甲午':
-                anGanZhiList = ['癸卯', '壬寅', '辛丑', '庚子', '己亥', '戊戌', '丁酉', '丙申', '乙未'];
-                xunShouLiuYi = '辛'
+                anGanZhiList = [
+                    '癸卯',
+                    '壬寅',
+                    '辛丑',
+                    '庚子',
+                    '己亥',
+                    '戊戌',
+                    '丁酉',
+                    '丙申',
+                    '乙未',
+                ];
+                xunShouLiuYi = '辛';
                 break;
             case '甲辰':
-                anGanZhiList = ['癸丑', '壬子', '辛亥', '庚戌', '己酉', '戊申', '丁未', '丙午', '乙巳'];
-                xunShouLiuYi = '壬'
+                anGanZhiList = [
+                    '癸丑',
+                    '壬子',
+                    '辛亥',
+                    '庚戌',
+                    '己酉',
+                    '戊申',
+                    '丁未',
+                    '丙午',
+                    '乙巳',
+                ];
+                xunShouLiuYi = '壬';
                 break;
             case '甲寅':
-                anGanZhiList = ['癸亥', '壬戌', '辛酉', '庚申', '己未', '戊午', '丁巳', '丙辰', '乙卯'];
-                xunShouLiuYi = '癸'
+                anGanZhiList = [
+                    '癸亥',
+                    '壬戌',
+                    '辛酉',
+                    '庚申',
+                    '己未',
+                    '戊午',
+                    '丁巳',
+                    '丙辰',
+                    '乙卯',
+                ];
+                xunShouLiuYi = '癸';
                 break;
         }
     }
@@ -418,31 +541,37 @@ export function paiAnGanZhi(xunshou: string, diPanGanList: string[], dun: string
     return rearrangeArray(anGanZhiList, anGanZhiStartingPosition);
 }
 
-export function rearrangeArray(array: string[], startIndex: number, dun: string = '阳'): string[] {
+export function rearrangeArray(
+    array: string[],
+    startIndex: number,
+    dun: string = '阳',
+): string[] {
     if (dun == '阴') {
-        const rearranged = array.slice(0, startIndex + 1).reverse().concat(array.slice(startIndex + 1).reverse());
+        const rearranged = array
+            .slice(0, startIndex + 1)
+            .reverse()
+            .concat(array.slice(startIndex + 1).reverse());
         return rearranged;
     } else {
         switch (startIndex) {
             default:
                 return array;
             case 1:
-                return array.slice(8).concat(array.slice(0, 8))
+                return array.slice(8).concat(array.slice(0, 8));
             case 2:
-                return array.slice(7).concat(array.slice(0, 7))
+                return array.slice(7).concat(array.slice(0, 7));
             case 3:
-                return array.slice(6).concat(array.slice(0, 6))
+                return array.slice(6).concat(array.slice(0, 6));
             case 4:
-                return array.slice(5).concat(array.slice(0, 5))
+                return array.slice(5).concat(array.slice(0, 5));
             case 5:
-                return array.slice(4).concat(array.slice(0, 4))
+                return array.slice(4).concat(array.slice(0, 4));
             case 6:
-                return array.slice(3).concat(array.slice(0, 3))
+                return array.slice(3).concat(array.slice(0, 3));
             case 7:
-                return array.slice(2).concat(array.slice(0, 2))
+                return array.slice(2).concat(array.slice(0, 2));
             case 8:
-                return array.slice(1).concat(array.slice(0, 1))
+                return array.slice(1).concat(array.slice(0, 1));
         }
     }
 }
-

@@ -3,17 +3,17 @@ import { dingJu } from './dingJu';
 import { feiPan } from './feiPan';
 
 interface PaiPanInput {
-    paipanMethod?: string,
-    date: string, //'yyyy/m/d',
-    time: string, // '00:00',
-    baoshuMethod?: string, // 制筹, 时辰, 局数
-    baoshu?: number,
-    chaiBu?: boolean,
+    paipanMethod?: string;
+    date: string; //'yyyy/m/d',
+    time: string; // '00:00',
+    baoshuMethod?: string; // 制筹, 时辰, 局数
+    baoshu?: number;
+    chaiBu?: boolean;
     ziXuanJu?: string;
-};
+}
 
 /**
- * 
+ *
  * 如果baoshuMethod = '' 和 baoshu == 0 则使用 ziXuanJu
  */
 export function paipan({
@@ -23,12 +23,13 @@ export function paipan({
     baoshuMethod = '', // 制筹, 时辰, 局数
     baoshu = 0,
     chaiBu = true,
-    ziXuanJu = ''
+    ziXuanJu = '',
 }: PaiPanInput) {
     const timeData = timeInfo(date, time, baoshuMethod, baoshu); // 提取四柱和节气
     let paipanResult;
 
-    let dingJuData = dingJu({ // 提取遁与局数
+    let dingJuData = dingJu({
+        // 提取遁与局数
         jieqi: timeData.jieqi,
         rizhu: timeData.ri,
         baoshuQiJuMethod: baoshuMethod,
@@ -53,21 +54,21 @@ export function paipan({
         default: // 默认排盘为转盘
             break;
         case '飞盘':
-            console.log(feiPan(fullTimeInformation));
+            console.log(feiPan(fullTimeInformation).panJuResult);
             break;
         case '张氏':
             break;
         case '星飞门转':
             break;
     }
-
 }
 
-paipan({ // Test
+paipan({
+    // Test
     paipanMethod: '飞盘',
-    date: '2024/9/14', //'yyyy/m/d',
+    date: '2024/9/15', //'yyyy/m/d',
     time: '22:11', // '00:00',
-    baoshuMethod: '', // 制筹, 时辰, 局数
-    baoshu: 0,
-    ziXuanJu: ''
+    baoshuMethod: '制筹', // 制筹, 时辰, 局数
+    baoshu: 21,
+    ziXuanJu: '',
 });

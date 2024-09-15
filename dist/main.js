@@ -4,8 +4,7 @@ exports.paipan = paipan;
 const sizhu_1 = require("./sizhu");
 const dingJu_1 = require("./dingJu");
 const feiPan_1 = require("./feiPan");
-;
-function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu = 0, chaiBu = true, ziXuanJu = '' }) {
+function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu = 0, chaiBu = true, ziXuanJu = '', }) {
     const timeData = (0, sizhu_1.timeInfo)(date, time, baoshuMethod, baoshu);
     let paipanResult;
     let dingJuData = (0, dingJu_1.dingJu)({
@@ -31,7 +30,7 @@ function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu
         default:
             break;
         case '飞盘':
-            console.log((0, feiPan_1.feiPan)(fullTimeInformation));
+            console.log((0, feiPan_1.feiPan)(fullTimeInformation).panJuResult);
             break;
         case '张氏':
             break;
@@ -41,9 +40,9 @@ function paipan({ paipanMethod = '转盘', date, time, baoshuMethod = '', baoshu
 }
 paipan({
     paipanMethod: '飞盘',
-    date: '2024/9/14',
+    date: '2024/9/15',
     time: '22:11',
-    baoshuMethod: '',
-    baoshu: 0,
-    ziXuanJu: ''
+    baoshuMethod: '制筹',
+    baoshu: 21,
+    ziXuanJu: '',
 });
