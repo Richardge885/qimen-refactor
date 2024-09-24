@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.feiPan = feiPan;
 const commonPaipanFunctions_1 = require("./commonPaipanFunctions");
 const commonInfo_1 = require("./commonInfo");
+const feiPanGeJu_1 = require("./feiPanGeJu");
 function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu, }) {
     const xunShou = (0, commonPaipanFunctions_1.zhaoXunShou)(shizhu, commonInfo_1.liushijiazi);
     const xunShouGan = (0, commonPaipanFunctions_1.findXunShouGan)(xunShou);
@@ -18,6 +19,7 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
     const gongWeiWangShuai = (0, commonPaipanFunctions_1.gongWangShuai)(jieqi, true);
     const maXing = (0, commonPaipanFunctions_1.getMaXing)(shizhu.charAt(1));
     const kongWang = (0, commonPaipanFunctions_1.getKongWang)(xunShou, true);
+    let wangGong = '';
     let result = {
         allTimeInformation: {
             date: date,
@@ -35,6 +37,7 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
         zhiShi: fuShi.zhishi,
         huanJu: {
             kanGong: {
+                baGua: '坎',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -48,13 +51,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             kunGong: {
+                baGua: '坤',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -68,13 +74,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             zhenGong: {
+                baGua: '震',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -88,13 +97,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             xunGong: {
+                baGua: '巽',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -108,13 +120,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             zhongGong: {
+                baGua: '中',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -128,13 +143,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             qianGong: {
+                baGua: '乾',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -148,13 +166,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             duiGong: {
+                baGua: '兑',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -168,13 +189,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             genGong: {
+                baGua: '艮',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -188,13 +212,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             liGong: {
+                baGua: '离',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -208,15 +235,18 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
         },
         panJuResult: {
             kanGong: {
+                baGua: '坎',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -230,13 +260,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             kunGong: {
+                baGua: '坤',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -250,13 +283,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             zhenGong: {
+                baGua: '震',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -270,13 +306,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             xunGong: {
+                baGua: '巽',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -290,13 +329,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             zhongGong: {
+                baGua: '中',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -310,13 +352,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             qianGong: {
+                baGua: '乾',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -330,13 +375,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             duiGong: {
+                baGua: '兑',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -350,13 +398,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             genGong: {
+                baGua: '艮',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -370,13 +421,16 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
             liGong: {
+                baGua: '离',
                 gongWangShuai: '',
                 maXing: false,
                 gongKong: false,
@@ -390,11 +444,13 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
                 diPanGan: '',
                 anGan: '',
                 anZhi: '',
-                ZhengGe: [],
-                ZhengGeExplnation: [],
-                FuGe: [],
-                FuGeExplnation: [],
+                zhengGe: [],
+                fuGe: [],
                 shenSha: [],
+                cangTianPanJia: false,
+                cangDiPanJia: false,
+                tianPanGanZhangSheng: '',
+                diPanGanZhangSheng: '',
             },
         },
     };
@@ -410,6 +466,9 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
         gongObject.anGan = anGanZhi[i].charAt(0);
         gongObject.anZhi = anGanZhi[i].charAt(1);
         gongObject.gongWangShuai = gongWeiWangShuai[i];
+        if (gongObject.gongWangShuai == '旺' && gongObject.baGua != '中') {
+            wangGong = gongObject.baGua;
+        }
         if (gongObject.diPanGan == kongWang[2]) {
             gongObject.diPanYiKong = true;
         }
@@ -422,6 +481,12 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
         if (i == maXing) {
             gongObject.maXing = true;
         }
+        if (gongObject.tianPanShen == '值符') {
+            gongObject.cangTianPanJia = true;
+        }
+        if (gongObject.diPanShen == '值符') {
+            gongObject.cangDiPanJia = true;
+        }
         i++;
     });
     if (shizhu == '甲戌' ||
@@ -430,11 +495,391 @@ function feiPan({ date, time, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu,
         shizhu == '甲辰' ||
         shizhu == '甲寅') {
         const tianPanInformation = gatherTianPanInformation(result.panJuResult, xunShouGan);
-        huanJu(result, tianPanInformation, shizhu.charAt(0), diPanGan);
+        result = huanJu(result, tianPanInformation, diPanGan);
+    }
+    result.panJuResult = putInZhengGe(result.panJuResult);
+    return result;
+}
+function putInZhengGe(panJu) {
+    let result = panJu;
+    let geJu = [];
+    Object.keys(result).forEach((object) => {
+        const gong = result[object];
+        geJu.push(getZhengGe(gong.tianPanGan + gong.diPanGan));
+    });
+    let i = 0;
+    Object.keys(result).forEach((object) => {
+        const gong = result[object];
+        for (let j = 0; j < geJu[i].length; j++) {
+            gong.zhengGe.push(geJu[i][j]);
+        }
+        i = i + 1;
+    });
+    return result;
+}
+function getZhengGe(zuHe) {
+    let result = [];
+    switch (zuHe) {
+        default:
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.muFuYin;
+            break;
+        case '甲乙':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            break;
+        case '甲丙':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.haoQi;
+            break;
+        case '甲丁':
+            result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
+            break;
+        case '甲戊':
+            result[0] = feiPanGeJu_1.zhengGe.waiZhi;
+            break;
+        case '甲己':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heTu;
+            result[1] = feiPanGeJu_1.zhengGe.waiQin;
+            break;
+        case '甲庚':
+            result[0] = feiPanGeJu_1.zhengGe.beiChong + '\n' + feiPanGeJu_1.zhengGe.muChong;
+            result[1] = feiPanGeJu_1.zhengGe.neiZhi;
+            break;
+        case '甲辛':
+            result[0] = feiPanGeJu_1.zhengGe.neiHai;
+            break;
+        case '甲壬':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.chengQuan;
+            break;
+        case '甲癸':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            result[1] = feiPanGeJu_1.zhengGe.deMu;
+            break;
+        case '乙甲':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            break;
+        case '乙乙':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin;
+            break;
+        case '乙丙':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
+            break;
+        case '乙丁':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.duoQuan;
+            break;
+        case '乙戊':
+            result[0] = feiPanGeJu_1.zhengGe.waiHai;
+            break;
+        case '乙己':
+            result[0] = feiPanGeJu_1.zhengGe.waiLuan;
+            break;
+        case '乙庚':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heJin;
+            result[1] = feiPanGeJu_1.zhengGe.neiQin;
+            break;
+        case '乙辛':
+            result[0] = feiPanGeJu_1.zhengGe.beiChong + '\n' + feiPanGeJu_1.zhengGe.muChong;
+            result[1] = feiPanGeJu_1.zhengGe.neiLuan;
+            break;
+        case '乙壬':
+            result[0] = feiPanGeJu_1.zhengGe.huoFu;
+            break;
+        case '乙癸':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.yiShi;
+            break;
+        case '丙甲':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.chengQuan;
+            break;
+        case '丙乙':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            result[1] = feiPanGeJu_1.zhengGe.deMu;
+            break;
+        case '丙丙':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.huoFuYin;
+            break;
+        case '丙丁':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            break;
+        case '丙戊':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.haoQi;
+            break;
+        case '丙己':
+            result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
+            break;
+        case '丙庚':
+            result[0] = feiPanGeJu_1.zhengGe.waiZhi;
+            break;
+        case '丙辛':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heShui;
+            result[1] = feiPanGeJu_1.zhengGe.waiQin;
+            break;
+        case '丙壬':
+            result[0] = feiPanGeJu_1.zhengGe.beiChong + '\n' + feiPanGeJu_1.zhengGe.huoChong;
+            result[1] = feiPanGeJu_1.zhengGe.neiZhi;
+            break;
+        case '丙癸':
+            result[0] = feiPanGeJu_1.zhengGe.neiHai;
+            break;
+        case '丁甲':
+            result[0] = feiPanGeJu_1.zhengGe.huoFu;
+            break;
+        case '丁乙':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.yiShi;
+            break;
+        case '丁丙':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            break;
+        case '丁丁':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.huoFuYin;
+            break;
+        case '丁戊':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
+            break;
+        case '丁己':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.duoQuan;
+            break;
+        case '丁庚':
+            result[0] = feiPanGeJu_1.zhengGe.waiHai;
+            break;
+        case '丁辛':
+            result[0] = feiPanGeJu_1.zhengGe.waiLuan;
+            break;
+        case '丁壬':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heMu;
+            result[1] = feiPanGeJu_1.zhengGe.neiQin;
+            break;
+        case '丁癸':
+            result[0] = feiPanGeJu_1.zhengGe.beiChong + '\n' + feiPanGeJu_1.zhengGe.huoChong;
+            result[1] = feiPanGeJu_1.zhengGe.neiLuan;
+            break;
+        case '戊甲':
+            result[0] = feiPanGeJu_1.zhengGe.neiZhi;
+            break;
+        case '戊乙':
+            result[0] = feiPanGeJu_1.zhengGe.neiHai;
+            break;
+        case '戊丙':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.chengQuan;
+            break;
+        case '戊丁':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            result[1] = feiPanGeJu_1.zhengGe.deMu;
+            break;
+        case '戊戊':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.muFuYin;
+            break;
+        case '戊己':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            break;
+        case '戊庚':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.haoQi;
+            break;
+        case '戊辛':
+            result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
+            result[1] = feiPanGeJu_1.zhengGe.zhiPo;
+            break;
+        case '戊壬':
+            result[0] = feiPanGeJu_1.zhengGe.waiZhi;
+            break;
+        case '戊癸':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heHuo;
+            result[1] = feiPanGeJu_1.zhengGe.waiQin;
+            break;
+        case '己甲':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heTu;
+            result[1] = feiPanGeJu_1.zhengGe.neiQin;
+            break;
+        case '己乙':
+            result[0] = feiPanGeJu_1.zhengGe.neiLuan;
+            break;
+        case '己丙':
+            result[0] = feiPanGeJu_1.zhengGe.huoFu;
+            break;
+        case '己丁':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.yiShi;
+            break;
+        case '己戊':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            break;
+        case '己己':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.muFuYin;
+            break;
+        case '己庚':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
+            break;
+        case '己辛':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.duoQuan;
+            break;
+        case '己壬':
+            result[0] = feiPanGeJu_1.zhengGe.waiHai;
+            result[1] = feiPanGeJu_1.zhengGe.zhiPo;
+            break;
+        case '己癸':
+            result[0] = feiPanGeJu_1.zhengGe.waiLuan;
+            break;
+        case '庚甲':
+            result[0] = feiPanGeJu_1.zhengGe.zhengChong + '\n' + feiPanGeJu_1.zhengGe.jinChong;
+            result[1] = feiPanGeJu_1.zhengGe.waiZhi;
+            break;
+        case '庚乙':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heJin;
+            result[1] = feiPanGeJu_1.zhengGe.waiQin;
+            break;
+        case '庚丙':
+            result[0] = feiPanGeJu_1.zhengGe.neiZhi;
+            break;
+        case '庚丁':
+            result[0] = feiPanGeJu_1.zhengGe.neiHai;
+            break;
+        case '庚戊':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.chengQuan;
+            break;
+        case '庚己':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            result[1] = feiPanGeJu_1.zhengGe.deMu;
+            break;
+        case '庚庚':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.jinFuYin;
+            break;
+        case '庚辛':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            break;
+        case '庚壬':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.haoQi;
+            break;
+        case '庚癸':
+            result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
+            result[1] = feiPanGeJu_1.zhengGe.zhiPo;
+            break;
+        case '辛甲':
+            result[0] = feiPanGeJu_1.zhengGe.waiHai;
+            break;
+        case '辛乙':
+            result[0] = feiPanGeJu_1.zhengGe.zhengChong + '\n' + feiPanGeJu_1.zhengGe.jinChong;
+            result[1] = feiPanGeJu_1.zhengGe.waiLuan;
+            break;
+        case '辛丙':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heShui;
+            result[1] = feiPanGeJu_1.zhengGe.neiQin;
+            break;
+        case '辛丁':
+            result[0] = feiPanGeJu_1.zhengGe.neiLuan;
+            break;
+        case '辛戊':
+            result[0] = feiPanGeJu_1.zhengGe.huoFu;
+            result[1] = feiPanGeJu_1.zhengGe.zhiPo;
+            break;
+        case '辛己':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.yiShi;
+            break;
+        case '辛庚':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            break;
+        case '辛辛':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.jinFuYin;
+            break;
+        case '辛壬':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
+            break;
+        case '辛癸':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.duoQuan;
+            break;
+        case '壬甲':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.haoQi;
+            break;
+        case '壬乙':
+            result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
+            break;
+        case '壬丙':
+            result[0] = feiPanGeJu_1.zhengGe.zhengChong + '\n' + feiPanGeJu_1.zhengGe.shuiChong;
+            result[1] = feiPanGeJu_1.zhengGe.waiZhi;
+            break;
+        case '壬丁':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heShui;
+            result[1] = feiPanGeJu_1.zhengGe.waiQin;
+            break;
+        case '壬戊':
+            result[0] = feiPanGeJu_1.zhengGe.neiZhi;
+            break;
+        case '壬己':
+            result[0] = feiPanGeJu_1.zhengGe.neiHai;
+            result[1] = feiPanGeJu_1.zhengGe.zhiPo;
+            break;
+        case '壬庚':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.chengQuan;
+            break;
+        case '壬辛':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            result[1] = feiPanGeJu_1.zhengGe.deMu;
+            break;
+        case '壬壬':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.shuiFuYin;
+            break;
+        case '壬癸':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            break;
+        case '癸甲':
+            result[0] = feiPanGeJu_1.zhengGe.jinRu;
+            result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
+            break;
+        case '癸乙':
+            result[0] = feiPanGeJu_1.zhengGe.qianJian;
+            result[1] = feiPanGeJu_1.zhengGe.duoQuan;
+            break;
+        case '癸丙':
+            result[0] = feiPanGeJu_1.zhengGe.waiHai;
+            break;
+        case '癸丁':
+            result[0] = feiPanGeJu_1.zhengGe.zhengChong + '\n' + feiPanGeJu_1.zhengGe.shuiChong;
+            result[1] = feiPanGeJu_1.zhengGe.waiLuan;
+            break;
+        case '癸戊':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heHuo;
+            result[1] = feiPanGeJu_1.zhengGe.neiQin;
+            break;
+        case '癸己':
+            result[0] = feiPanGeJu_1.zhengGe.neiLuan;
+            break;
+        case '癸庚':
+            result[0] = feiPanGeJu_1.zhengGe.huoFu;
+            result[1] = feiPanGeJu_1.zhengGe.zhiPo;
+            break;
+        case '癸辛':
+            result[0] = feiPanGeJu_1.zhengGe.houJian;
+            result[1] = feiPanGeJu_1.zhengGe.yiShi;
+            break;
+        case '癸壬':
+            result[0] = feiPanGeJu_1.zhengGe.tuiRu;
+            break;
+        case '癸癸':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.shuiFuYin;
+            break;
     }
     return result;
 }
-function huanJu(originalPanJu, tianPanInformation, shigan, diPanGan) {
+function getShenSha() {
+}
+function huanJu(originalPanJu, tianPanInformation, diPanGan) {
     let result = originalPanJu;
     let i = 0;
     let rearrangedTianPan;
@@ -506,10 +951,6 @@ function huanJu(originalPanJu, tianPanInformation, shigan, diPanGan) {
         huanJu.diPanGan = panJu.diPanGan;
         huanJu.anGan = panJu.anGan;
         huanJu.anZhi = panJu.anZhi;
-        huanJu.ZhengGe = panJu.ZhengGe;
-        huanJu.ZhengGeExplnation = panJu.ZhengGeExplnation;
-        huanJu.FuGe = panJu.FuGe;
-        huanJu.FuGeExplnation = panJu.FuGeExplnation;
         huanJu.shenSha = panJu.shenSha;
         i++;
     });
