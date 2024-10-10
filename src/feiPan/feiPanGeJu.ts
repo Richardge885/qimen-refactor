@@ -323,4 +323,5 @@ export const shenSha = {
     bingFu: '病符：主疾病、衰弱，也主陈年旧事。',
 };
 
+// TODO 奇格信息
 export const qiGe = {};

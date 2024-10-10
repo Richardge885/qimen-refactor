@@ -1,4 +1,4 @@
-import data from '../wnl.json';
+import data from '../../wnl.json';
 import { liushijiazi } from './commonInfo';
 
 interface CalendarEntry {
