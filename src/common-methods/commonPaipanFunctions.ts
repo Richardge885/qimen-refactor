@@ -192,7 +192,7 @@ export function dingFuShi(dipangan: string[], xunshou: string) {
                     case 3:
                         return { zhifu: '天辅', zhishi: '杜门' };
                     case 4:
-                        return { zhifu: '天禽', zhishi: '中门' };
+                        return { zhifu: '天禽', zhishi: '中五' };
                     case 5:
                         return { zhifu: '天心', zhishi: '开门' };
                     case 6:
@@ -217,7 +217,7 @@ export function dingFuShi(dipangan: string[], xunshou: string) {
                     case 3:
                         return { zhifu: '天辅', zhishi: '杜门' };
                     case 4:
-                        return { zhifu: '天禽', zhishi: '中门' };
+                        return { zhifu: '天禽', zhishi: '中五' };
                     case 5:
                         return { zhifu: '天心', zhishi: '开门' };
                     case 6:
@@ -242,7 +242,7 @@ export function dingFuShi(dipangan: string[], xunshou: string) {
                     case 3:
                         return { zhifu: '天辅', zhishi: '杜门' };
                     case 4:
-                        return { zhifu: '天禽', zhishi: '中门' };
+                        return { zhifu: '天禽', zhishi: '中五' };
                     case 5:
                         return { zhifu: '天心', zhishi: '开门' };
                     case 6:
@@ -267,7 +267,7 @@ export function dingFuShi(dipangan: string[], xunshou: string) {
                     case 3:
                         return { zhifu: '天辅', zhishi: '杜门' };
                     case 4:
-                        return { zhifu: '天禽', zhishi: '中门' };
+                        return { zhifu: '天禽', zhishi: '中五' };
                     case 5:
                         return { zhifu: '天心', zhishi: '开门' };
                     case 6:
@@ -292,7 +292,7 @@ export function dingFuShi(dipangan: string[], xunshou: string) {
                     case 3:
                         return { zhifu: '天辅', zhishi: '杜门' };
                     case 4:
-                        return { zhifu: '天禽', zhishi: '中门' };
+                        return { zhifu: '天禽', zhishi: '中五' };
                     case 5:
                         return { zhifu: '天心', zhishi: '开门' };
                     case 6:
@@ -317,7 +317,7 @@ export function dingFuShi(dipangan: string[], xunshou: string) {
                     case 3:
                         return { zhifu: '天辅', zhishi: '杜门' };
                     case 4:
-                        return { zhifu: '天禽', zhishi: '中门' };
+                        return { zhifu: '天禽', zhishi: '中五' };
                     case 5:
                         return { zhifu: '天心', zhishi: '开门' };
                     case 6:

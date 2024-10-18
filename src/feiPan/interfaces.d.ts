@@ -38,7 +38,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
     kunGong: {
@@ -61,7 +73,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
     zhenGong: {
@@ -84,7 +108,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
     xunGong: {
@@ -107,7 +143,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
     zhongGong: {
@@ -130,7 +178,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
     qianGong: {
@@ -153,7 +213,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
     duiGong: {
@@ -176,7 +248,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
     genGong: {
@@ -199,7 +283,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
     liGong: {
@@ -222,217 +318,19 @@ export interface JiuGongXinXi {
         anGan: string;
         anZhi: string;
         zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-}
-
-export interface JiuGongXinXi {
-    kanGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-    kunGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-    zhenGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-    xunGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-    zhongGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-    qianGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-    duiGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-    genGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
-        shenSha: string[];
-    };
-    liGong: {
-        cangTianPanJia: boolean;
-        cangDiPanJia: boolean;
-        tianPanGanZhangSheng: string;
-        diPanGanZhangSheng: string;
-        baGua: string;
-        gongWangShuai: string;
-        maXing: boolean;
-        gongKong: boolean;
-        tianPanYiKong: boolean;
-        diPanYiKong: boolean;
-        tianPanShen: string;
-        diPanShen: string;
-        xing: string;
-        men: string;
-        tianPanGan: string;
-        diPanGan: string;
-        anGan: string;
-        anZhi: string;
-        zhengGe: string[];
-        fuGe: string[];
+        fuGe: {
+            ganGong: string;
+            menGong: string;
+            xingGong: string;
+        };
+        symboleInfo: {
+            xing: string;
+            men: string;
+            shen: string;
+            tianPanGan: string;
+            diPanGan: string;
+            gong: string;
+        };
         shenSha: string[];
     };
 }

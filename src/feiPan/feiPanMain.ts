@@ -4,20 +4,11 @@ import {
     dingFuShi,
     paiAnGanZhi,
     findXunShouGan,
-    rearrangeArray,
     gongWangShuai,
     getMaXing,
     getKongWang,
 } from "../common-methods/commonPaipanFunctions";
 import { liushijiazi } from "../common-methods/commonInfo";
-import {
-    zhengGe,
-    fuGe,
-    shenSha,
-    xingInfo,
-    menInfo,
-    shenInfo,
-} from "./feiPanGeJu";
 import {
     getZhiShiPosition,
     paiBaMen,
@@ -28,18 +19,20 @@ import {
 } from "./paiPanZhongXinXi";
 import { gatherTianPanInformation, huanJu } from "./huanJu";
 import { putInZhengGe } from "./zhengGe";
+import { putInFuGe } from "./fuGe";
 import { FullTimeInformation, PanJuInformation } from "./interfaces";
 import { putInZhangSheng } from "./zhangSheng";
+import { putInShenSha } from "./shenSha";
+import { toTraditionalCharacter } from "./traditionalCharacter";
+import { toSingleCharacter } from "./singleCharacter";
 
-export function paiFeiPan({
-    nianzhu,
-    yuezhu,
-    rizhu,
-    shizhu,
-    jieqi,
-    dun,
-    jushu,
-}: FullTimeInformation): PanJuInformation {
+export function paiFeiPan(
+    { nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu }: FullTimeInformation,
+    additionalSetting: {
+        traditionalCharacters: boolean;
+        singleCharacter: boolean;
+    },
+): PanJuInformation {
     const xunShou = zhaoXunShou(shizhu, liushijiazi)!;
     const xunShouGan = findXunShouGan(xunShou);
     const diPanGan = paiDiPanGan(dun, jushu)!;
@@ -86,7 +79,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -109,7 +114,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -132,7 +149,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -155,7 +184,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -178,7 +219,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -201,7 +254,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -224,7 +289,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -247,7 +324,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -270,7 +359,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -295,7 +396,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -318,7 +431,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -341,7 +466,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -364,7 +501,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -387,7 +536,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -410,7 +571,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -433,7 +606,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -456,7 +641,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -479,7 +676,19 @@ export function paiFeiPan({
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
-                fuGe: [],
+                fuGe: {
+                    ganGong: "",
+                    menGong: "",
+                    xingGong: "",
+                },
+                symboleInfo: {
+                    xing: "",
+                    men: "",
+                    shen: "",
+                    tianPanGan: "",
+                    diPanGan: "",
+                    gong: "",
+                },
                 shenSha: [],
                 cangTianPanJia: false,
                 cangDiPanJia: false,
@@ -528,6 +737,14 @@ export function paiFeiPan({
         i++;
     });
 
+    result.panJuResult = putInZhengGe(result.panJuResult); // 给盘踞信息添加正格信息
+    result.panJuResult = putInZhangSheng(result.panJuResult); // 给盘踞信息添加长生信息
+    result.panJuResult = putInFuGe(result.panJuResult); // 给盘踞信息添加辅格信息
+    result.panJuResult = putInShenSha(
+        result.panJuResult,
+        result.allTimeInformation,
+    );
+
     // 重排甲时局
     if (
         shizhu == "甲戌" ||
@@ -541,12 +758,23 @@ export function paiFeiPan({
             xunShouGan,
         );
         result = huanJu(result, tianPanInformation, diPanGan);
-    }
-    result.panJuResult = putInZhengGe(result.panJuResult); // 给盘踞信息添加正格信息
-    result.panJuResult = putInZhangSheng(result.panJuResult); // 给盘踞信息添加长生信息
-    if (result.huanJu.kanGong.tianPanGan != "") {
         result.huanJu = putInZhengGe(result.huanJu); // 给盘踞信息添加正格信息
         result.huanJu = putInZhangSheng(result.huanJu); // 给盘踞信息添加长生信息
+        result.huanJu = putInFuGe(result.huanJu); // 给盘踞信息添加辅格信息
+    }
+
+    // 先替换为繁体字再简化为单子
+    if (additionalSetting.traditionalCharacters) {
+        result.panJuResult = toTraditionalCharacter(result.panJuResult);
+        if (result.huanJu.kanGong.tianPanGan != "") {
+            result.huanJu = toTraditionalCharacter(result.huanJu);
+        }
+    }
+    if (additionalSetting.singleCharacter) {
+        result.panJuResult = toSingleCharacter(result.panJuResult);
+        if (result.huanJu.kanGong.tianPanGan != "") {
+            result.huanJu = toSingleCharacter(result.huanJu);
+        }
     }
     return result;
 }

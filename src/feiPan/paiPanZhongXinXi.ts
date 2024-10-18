@@ -154,7 +154,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
                 '死门',
                 '伤门',
                 '杜门',
-                '中门',
+                '中五',
                 '开门',
                 '惊门',
                 '生门',
@@ -166,7 +166,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
                 '死门',
                 '伤门',
                 '杜门',
-                '中门',
+                '中五',
                 '开门',
                 '惊门',
                 '生门',
@@ -178,7 +178,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
             baMenList = [
                 '伤门',
                 '杜门',
-                '中门',
+                '中五',
                 '开门',
                 '惊门',
                 '生门',
@@ -190,7 +190,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
         case '杜门':
             baMenList = [
                 '杜门',
-                '中门',
+                '中五',
                 '开门',
                 '惊门',
                 '生门',
@@ -200,9 +200,9 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
                 '伤门',
             ];
             break;
-        case '中门':
+        case '中五':
             baMenList = [
-                '中门',
+                '中五',
                 '开门',
                 '惊门',
                 '生门',
@@ -223,7 +223,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
                 '死门',
                 '伤门',
                 '杜门',
-                '中门',
+                '中五',
             ];
             break;
         case '惊门':
@@ -235,7 +235,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
                 '死门',
                 '伤门',
                 '杜门',
-                '中门',
+                '中五',
                 '开门',
             ];
             break;
@@ -247,7 +247,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
                 '死门',
                 '伤门',
                 '杜门',
-                '中门',
+                '中五',
                 '开门',
                 '惊门',
             ];
@@ -259,7 +259,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
                 '死门',
                 '伤门',
                 '杜门',
-                '中门',
+                '中五',
                 '开门',
                 '惊门',
                 '生门',
@@ -271,7 +271,7 @@ export function paiBaMen(zhiShi: string, zhiShiPosition: number) {
                 '死门',
                 '伤门',
                 '杜门',
-                '中门',
+                '中五',
                 '开门',
                 '惊门',
                 '生门',
