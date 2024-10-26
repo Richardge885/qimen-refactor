@@ -1,0 +1,17 @@
+{
+  "name": "qimen-mingfa",
+  "version": "1.0.0",
+  "description": "飞盘奇门鸣法排片后端",
+  "main": "dist/paiPan.js",
+  "scripts": {},
+  "keywords": [
+    "奇门",
+    "飞盘奇门",
+    "奇门鸣法"
+  ],
+  "author": "Richard Ge",
+  "license": "MIT",
+  "dependencies": {
+    "lunar-typescript": "^1.7.5"
+  }
+}
