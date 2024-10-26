@@ -1,7 +1,7 @@
 import { getTimeInfo } from "./common-methods/lunarLibrary";
 import { dingJu } from "./common-methods/dingJu/dingJu";
 import { paiFeiPan } from "./feiPan/feiPanMain";
-import { PanJuInformation } from "./feiPan/interfaces";
+import { FullTimeInformation, JiuGongXinXi, PanJuInformation } from "./feiPan/interfaces";
 import { PaipanTime } from "./common-methods/timeInterface";
 
 interface PaiPanInput {
@@ -19,8 +19,16 @@ interface AdditionalSettings {
   singleCharacter: boolean;
 }
 
+interface PaiPanResult {
+  allTimeInformation: FullTimeInformation;
+  zhiFu: string;
+  zhiShi: string;
+  xunShou: string;
+  huanJu: JiuGongXinXi;
+  panJuResult: JiuGongXinXi;
+}
+
 /**
- *
  * paipanMethod = "飞盘",
  * time = {
  *      year: number
@@ -38,7 +46,6 @@ interface AdditionalSettings {
  *      singleCharacter: boolean;
  * },
  * 如果baoshuMethod = '' 和 baoshu == 0 则使用 ziXuanJu
- *
  */
 export function paipan({
   paipanMethod = "飞盘",
@@ -48,7 +55,7 @@ export function paipan({
   chaiBu = true,
   ziXuanJu = "",
   additionalSettings,
-}: PaiPanInput) {
+}: PaiPanInput): PaiPanResult {
   //const timeData = timeInfo(date, time, baoshuMethod, baoshu); // 根据自制 sizhu.ts
   const timeData = getTimeInfo(time, baoshuMethod, baoshu); // 根据Lunar-typescript Library
   let paipanResult: PanJuInformation;
@@ -87,21 +94,3 @@ export function paipan({
   }
   return paipanResult!;
 }
-
-//paipan({
-//  //paipanMethod: "飞盘",
-//  time: {
-//    year: 2024,
-//    month: 10,
-//    day: 18,
-//    hour: 19,
-//    minute: 47,
-//  },
-//  //baoshuMethod: "", // 制筹, 时辰, 局数
-//  //baoshu: 0,
-//  ziXuanJu: "",
-//  additionalSettings: {
-//    traditionalCharacters: false,
-//    singleCharacter: false,
-//  },
-//});
