@@ -1,3 +1,12 @@
+export interface PanJuInformation {
+    allTimeInformation: FullTimeInformation;
+    zhiFu: string;
+    zhiShi: string;
+    xunShou: string;
+    huanJu: JiuGongXinXi;
+    panJuResult: JiuGongXinXi;
+}
+
 export interface FullTimeInformation {
     year: number;
     month: number;
@@ -11,15 +20,6 @@ export interface FullTimeInformation {
     jieqi: string;
     dun: string;
     jushu: string;
-}
-
-export interface PanJuInformation {
-    allTimeInformation: FullTimeInformation;
-    zhiFu: string;
-    zhiShi: string;
-    xunShou: string;
-    huanJu: JiuGongXinXi;
-    panJuResult: JiuGongXinXi;
 }
 
 export interface JiuGongXinXi {

@@ -17,8 +17,8 @@ function getTimeInfo(time, baoshuMethod, baoshu) {
                 shiGanZhi = commonInfo_1.liushijiazi[(baoshu % 60) - 1];
             }
             return {
-                nian: solarToLunar.getYearInGanZhi(),
-                yue: solarToLunar.getMonthInGanZhi(),
+                nian: solarToLunar.getYearInGanZhiExact(),
+                yue: solarToLunar.getMonthInGanZhiExact(),
                 ri: solarToLunar.getDayInGanZhiExact(),
                 shi: shiGanZhi,
                 jieqi: solarToLunar.getPrevJieQi().toString(),
