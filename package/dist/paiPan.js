@@ -5,6 +5,9 @@ const lunarLibrary_1 = require("./common-methods/lunarLibrary");
 const dingJu_1 = require("./common-methods/dingJu/dingJu");
 const feiPanMain_1 = require("./feiPan/feiPanMain");
 function paipan({ paipanMethod = "飞盘", time, baoshuMethod = "", baoshu = 0, chaiBu = true, ziXuanJu = "", additionalSettings, }) {
+    if (baoshu === 0) {
+        baoshuMethod = "";
+    }
     const timeData = (0, lunarLibrary_1.getTimeInfo)(time, baoshuMethod, baoshu);
     let paipanResult;
     let dingJuData = (0, dingJu_1.dingJu)({
