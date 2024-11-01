@@ -14,8 +14,6 @@ export function toSingleCharacter(panJu: JiuGongXinXi) {
 
 function shenToSingleCharacter(shen: string) {
     switch (shen) {
-        default: // 默认值 值符
-            return "符";
         case "螣蛇":
             return "蛇";
         case "太阴":
@@ -36,5 +34,11 @@ function shenToSingleCharacter(shen: string) {
             return "地";
         case "九天":
             return "天";
+        case "太陰":
+            return "陰";
+        case "勾陳":
+            return "陳";
+        default: // 默认值 值符
+            return "符";
     }
 }

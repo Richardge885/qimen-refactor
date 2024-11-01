@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.paiFeiPan = paiFeiPan;
 const commonPaipanFunctions_1 = require("../common-methods/commonPaipanFunctions");
@@ -9,6 +12,7 @@ const zhengGe_1 = require("./zhengGe");
 const fuGe_1 = require("./fuGe");
 const zhangSheng_1 = require("./zhangSheng");
 const shenSha_1 = require("./shenSha");
+const getLiuQin_1 = __importDefault(require("./getLiuQin"));
 const inputSymboleInfo_1 = require("./inputSymboleInfo");
 const traditionalCharacter_1 = require("./traditionalCharacter");
 const singleCharacter_1 = require("./singleCharacter");
@@ -28,7 +32,76 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
     const maXing = (0, commonPaipanFunctions_1.getMaXing)(shizhu.charAt(1));
     const kongWang = (0, commonPaipanFunctions_1.getKongWang)(xunShou, true);
     let wangGong = "";
-    let result = {
+    let result = initializeJiuGong(year, month, date, hour, minute, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu, xunShou, fuShi.zhifu, fuShi.zhishi);
+    let i = 0;
+    Object.keys(result.panJuResult).forEach((gong) => {
+        const gongObject = result.panJuResult[gong];
+        gongObject.diPanGan = diPanGan[i];
+        gongObject.tianPanGan = tianPanGan[i];
+        gongObject.tianPanShen = tianPanShen[i];
+        gongObject.diPanShen = diPanShen[i];
+        gongObject.men = men[i];
+        gongObject.xing = xing[i];
+        gongObject.anGan = anGanZhi[i].charAt(0);
+        gongObject.anZhi = anGanZhi[i].charAt(1);
+        gongObject.gongWangShuai = gongWeiWangShuai[i];
+        if (gongObject.gongWangShuai == "旺" && gongObject.baGua != "中") {
+            wangGong = gongObject.baGua;
+        }
+        if (gongObject.diPanGan == kongWang[2]) {
+            gongObject.diPanYiKong = true;
+        }
+        if (gongObject.tianPanGan == kongWang[2]) {
+            gongObject.tianPanYiKong = true;
+        }
+        if (i == kongWang[0] || i == kongWang[1]) {
+            gongObject.gongKong = true;
+        }
+        if (i == maXing) {
+            gongObject.maXing = true;
+        }
+        if (gongObject.tianPanShen == "值符") {
+            gongObject.cangTianPanJia = true;
+        }
+        if (gongObject.diPanShen == "值符") {
+            gongObject.cangDiPanJia = true;
+        }
+        i++;
+    });
+    result.panJuResult = (0, zhengGe_1.putInZhengGe)(result.panJuResult);
+    result.panJuResult = (0, getLiuQin_1.default)(result.allTimeInformation.shizhu.charAt(0), result.panJuResult);
+    result.panJuResult = (0, zhangSheng_1.putInZhangSheng)(result.panJuResult);
+    result.panJuResult = (0, fuGe_1.putInFuGe)(result.panJuResult);
+    result.panJuResult = (0, shenSha_1.putInShenSha)(result.panJuResult, result.allTimeInformation);
+    result.panJuResult = (0, inputSymboleInfo_1.inputSymboleInfo)(result.panJuResult, result.allTimeInformation.shizhu.charAt(1));
+    if (shizhu == "甲戌" ||
+        shizhu == "甲申" ||
+        shizhu == "甲午" ||
+        shizhu == "甲辰" ||
+        shizhu == "甲寅") {
+        const tianPanInformation = (0, huanJu_1.gatherTianPanInformation)(result.panJuResult, xunShouGan);
+        result = (0, huanJu_1.huanJu)(result, tianPanInformation, diPanGan);
+        result.huanJu = (0, getLiuQin_1.default)(result.allTimeInformation.shizhu.charAt(0), result.huanJu);
+        result.huanJu = (0, zhengGe_1.putInZhengGe)(result.huanJu);
+        result.huanJu = (0, zhangSheng_1.putInZhangSheng)(result.huanJu);
+        result.huanJu = (0, fuGe_1.putInFuGe)(result.huanJu);
+    }
+    if (additionalSetting.traditionalCharacters) {
+        result.panJuResult = (0, traditionalCharacter_1.toTraditionalCharacter)(result.panJuResult);
+        if (result.huanJu.kanGong.tianPanGan != "") {
+            result.huanJu = (0, traditionalCharacter_1.toTraditionalCharacter)(result.huanJu);
+        }
+    }
+    if (additionalSetting.singleCharacter) {
+        result.panJuResult = (0, singleCharacter_1.toSingleCharacter)(result.panJuResult);
+        if (result.huanJu.kanGong.tianPanGan != "") {
+            result.huanJu = (0, singleCharacter_1.toSingleCharacter)(result.huanJu);
+        }
+    }
+    return result;
+}
+function initializeJiuGong(year, month, date, hour, minute, nianzhu, yuezhu, rizhu, shizhu, jieqi, dun, jushu, xunShou, zhiFu, zhiShi) {
+    return {
         allTimeInformation: {
             year: year,
             month: month,
@@ -44,8 +117,8 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
             jushu: jushu,
         },
         xunShou: xunShou,
-        zhiFu: fuShi.zhifu,
-        zhiShi: fuShi.zhishi,
+        zhiFu: zhiFu,
+        zhiShi: zhiShi,
         huanJu: {
             kanGong: {
                 baGua: "坎",
@@ -63,6 +136,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -98,6 +175,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -133,6 +214,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -168,6 +253,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -203,6 +292,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -238,6 +331,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -273,6 +370,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -308,6 +409,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -343,6 +448,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -380,6 +489,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -415,6 +528,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -450,6 +567,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -485,6 +606,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -520,6 +645,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -555,6 +684,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -590,6 +723,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -625,6 +762,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -660,6 +801,10 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
                 anGan: "",
                 anZhi: "",
                 zhengGe: [],
+                tianPanGanLiuQin: "",
+                diPanGanLiuQin: "",
+                tianPanGanShiShen: "",
+                diPanGanShiShen: "",
                 fuGe: {
                     ganGong: "",
                     menGong: "",
@@ -681,68 +826,4 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
             },
         },
     };
-    let i = 0;
-    Object.keys(result.panJuResult).forEach((gong) => {
-        const gongObject = result.panJuResult[gong];
-        gongObject.diPanGan = diPanGan[i];
-        gongObject.tianPanGan = tianPanGan[i];
-        gongObject.tianPanShen = tianPanShen[i];
-        gongObject.diPanShen = diPanShen[i];
-        gongObject.men = men[i];
-        gongObject.xing = xing[i];
-        gongObject.anGan = anGanZhi[i].charAt(0);
-        gongObject.anZhi = anGanZhi[i].charAt(1);
-        gongObject.gongWangShuai = gongWeiWangShuai[i];
-        if (gongObject.gongWangShuai == "旺" && gongObject.baGua != "中") {
-            wangGong = gongObject.baGua;
-        }
-        if (gongObject.diPanGan == kongWang[2]) {
-            gongObject.diPanYiKong = true;
-        }
-        if (gongObject.tianPanGan == kongWang[2]) {
-            gongObject.tianPanYiKong = true;
-        }
-        if (i == kongWang[0] || i == kongWang[1]) {
-            gongObject.gongKong = true;
-        }
-        if (i == maXing) {
-            gongObject.maXing = true;
-        }
-        if (gongObject.tianPanShen == "值符") {
-            gongObject.cangTianPanJia = true;
-        }
-        if (gongObject.diPanShen == "值符") {
-            gongObject.cangDiPanJia = true;
-        }
-        i++;
-    });
-    result.panJuResult = (0, zhengGe_1.putInZhengGe)(result.panJuResult);
-    result.panJuResult = (0, zhangSheng_1.putInZhangSheng)(result.panJuResult);
-    result.panJuResult = (0, fuGe_1.putInFuGe)(result.panJuResult);
-    result.panJuResult = (0, shenSha_1.putInShenSha)(result.panJuResult, result.allTimeInformation);
-    result.panJuResult = (0, inputSymboleInfo_1.inputSymboleInfo)(result.panJuResult, result.allTimeInformation.shizhu.charAt(1));
-    if (shizhu == "甲戌" ||
-        shizhu == "甲申" ||
-        shizhu == "甲午" ||
-        shizhu == "甲辰" ||
-        shizhu == "甲寅") {
-        const tianPanInformation = (0, huanJu_1.gatherTianPanInformation)(result.panJuResult, xunShouGan);
-        result = (0, huanJu_1.huanJu)(result, tianPanInformation, diPanGan);
-        result.huanJu = (0, zhengGe_1.putInZhengGe)(result.huanJu);
-        result.huanJu = (0, zhangSheng_1.putInZhangSheng)(result.huanJu);
-        result.huanJu = (0, fuGe_1.putInFuGe)(result.huanJu);
-    }
-    if (additionalSetting.traditionalCharacters) {
-        result.panJuResult = (0, traditionalCharacter_1.toTraditionalCharacter)(result.panJuResult);
-        if (result.huanJu.kanGong.tianPanGan != "") {
-            result.huanJu = (0, traditionalCharacter_1.toTraditionalCharacter)(result.huanJu);
-        }
-    }
-    if (additionalSetting.singleCharacter) {
-        result.panJuResult = (0, singleCharacter_1.toSingleCharacter)(result.panJuResult);
-        if (result.huanJu.kanGong.tianPanGan != "") {
-            result.huanJu = (0, singleCharacter_1.toSingleCharacter)(result.huanJu);
-        }
-    }
-    return result;
 }

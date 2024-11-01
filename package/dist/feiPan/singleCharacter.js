@@ -14,8 +14,6 @@ function toSingleCharacter(panJu) {
 }
 function shenToSingleCharacter(shen) {
     switch (shen) {
-        default:
-            return "符";
         case "螣蛇":
             return "蛇";
         case "太阴":
@@ -36,5 +34,11 @@ function shenToSingleCharacter(shen) {
             return "地";
         case "九天":
             return "天";
+        case "太陰":
+            return "陰";
+        case "勾陳":
+            return "陳";
+        default:
+            return "符";
     }
 }
