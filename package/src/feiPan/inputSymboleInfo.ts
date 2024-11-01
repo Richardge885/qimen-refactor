@@ -62,7 +62,7 @@ export function inputSymboleInfo(panJu: JiuGongXinXi, shiZhi: string) {
         break;
     }
     gong.symboleInfo.xing =
-      gong.symboleInfo.xing + xingZhiShiYing(gong.xing, shiZhi);
+      gong.symboleInfo.xing + "\n" + xingZhiShiYing(gong.xing, shiZhi);
 
     switch (gong.men) {
       default: // 默认值休门
