@@ -1,6 +1,6 @@
 {
   "name": "qimen-mingfa",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "飞盘奇门鸣法排片后端",
   "main": "dist/paiPan.js",
   "scripts": {},
