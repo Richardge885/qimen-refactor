@@ -1,46 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toTraditionalCharacter = toTraditionalCharacter;
+exports.menToTraditionalCharacter = menToTraditionalCharacter;
+exports.xingToTraditionalCharacter = xingToTraditionalCharacter;
 function toTraditionalCharacter(panJu) {
     let result = panJu;
     Object.keys(result).forEach((object) => {
         const gong = result[object];
-        switch (gong.xing) {
-            default:
-                break;
-            case "天冲":
-                gong.xing = "天沖";
-                break;
-            case "天辅":
-                gong.xing = "天輔";
-                break;
-        }
-        switch (gong.men) {
-            default:
-                gong.men = "休門";
-                break;
-            case "死门":
-                gong.men = "死門";
-                break;
-            case "伤门":
-                gong.men = "傷門";
-                break;
-            case "杜门":
-                gong.men = "杜門";
-                break;
-            case "开门":
-                gong.men = "開門";
-                break;
-            case "惊门":
-                gong.men = "驚門";
-                break;
-            case "生门":
-                gong.men = "生門";
-                break;
-            case "景门":
-                gong.men = "景門";
-                break;
-        }
+        gong.xing = xingToTraditionalCharacter(gong.xing);
+        gong.men = menToTraditionalCharacter(gong.men);
         switch (gong.tianPanShen) {
             case "太阴":
                 gong.tianPanShen = "太陰";
@@ -59,4 +27,33 @@ function toTraditionalCharacter(panJu) {
         }
     });
     return result;
+}
+function menToTraditionalCharacter(men) {
+    switch (men) {
+        default:
+            return "休門";
+        case "死门":
+            return "死門";
+        case "伤门":
+            return "傷門";
+        case "杜门":
+            return "杜門";
+        case "开门":
+            return "開門";
+        case "惊门":
+            return "驚門";
+        case "生门":
+            return "生門";
+        case "景门":
+            return "景門";
+    }
+}
+function xingToTraditionalCharacter(xing) {
+    switch (xing) {
+        case "天冲":
+            return "天沖";
+        case "天辅":
+            return "天輔";
+    }
+    return xing;
 }

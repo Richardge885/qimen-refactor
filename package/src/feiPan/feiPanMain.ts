@@ -25,7 +25,11 @@ import { putInZhangSheng } from "./zhangSheng";
 import { putInShenSha } from "./shenSha";
 import putInLiuQin from "./getLiuQin";
 import { inputSymboleInfo } from "./inputSymboleInfo";
-import { toTraditionalCharacter } from "./traditionalCharacter";
+import {
+    toTraditionalCharacter,
+    menToTraditionalCharacter,
+    xingToTraditionalCharacter,
+} from "./traditionalCharacter";
 import { toSingleCharacter } from "./singleCharacter";
 
 export function paiFeiPan(
@@ -162,6 +166,8 @@ export function paiFeiPan(
     // 先替换为繁体字再简化为单子
     if (additionalSetting.traditionalCharacters) {
         result.panJuResult = toTraditionalCharacter(result.panJuResult);
+        result.zhiShi = menToTraditionalCharacter(result.zhiShi);
+        result.zhiFu = xingToTraditionalCharacter(result.zhiFu);
         if (result.huanJu.kanGong.tianPanGan != "") {
             result.huanJu = toTraditionalCharacter(result.huanJu);
         }
