@@ -62,7 +62,7 @@ function inputSymboleInfo(panJu, shiZhi) {
                 break;
         }
         gong.symboleInfo.xing =
-            gong.symboleInfo.xing + xingZhiShiYing(gong.xing, shiZhi);
+            gong.symboleInfo.xing + "\n" + xingZhiShiYing(gong.xing, shiZhi);
         switch (gong.men) {
             default:
                 gong.symboleInfo.men = feiPanGeJu_1.menInfo.xiuMen;

@@ -181,6 +181,9 @@ function getFuGe(tianPanGan, diPanGan, men, xing, gong) {
     }
     switch (men) {
         default:
+            result.menGong = "";
+            break;
+        case "休门":
             switch (gong) {
                 case "乾":
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
