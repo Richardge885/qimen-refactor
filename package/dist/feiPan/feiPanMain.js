@@ -85,6 +85,7 @@ function paiFeiPan({ year, month, date, hour, minute, nianzhu, yuezhu, rizhu, sh
         result.huanJu = (0, zhengGe_1.putInZhengGe)(result.huanJu);
         result.huanJu = (0, zhangSheng_1.putInZhangSheng)(result.huanJu);
         result.huanJu = (0, fuGe_1.putInFuGe)(result.huanJu);
+        result.huanJu = (0, inputSymboleInfo_1.inputSymboleInfo)(result.huanJu, result.allTimeInformation.shizhu.charAt(1));
     }
     if (additionalSetting.traditionalCharacters) {
         result.panJuResult = (0, traditionalCharacter_1.toTraditionalCharacter)(result.panJuResult);
