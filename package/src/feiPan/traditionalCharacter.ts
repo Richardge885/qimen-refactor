@@ -29,6 +29,8 @@ export function toTraditionalCharacter(panJu: JiuGongXinXi) {
 export function menToTraditionalCharacter(men: string) {
     switch (men) {
         default:
+            return "中五";
+        case "休门":
             return "休門";
         case "死门":
             return "死門";

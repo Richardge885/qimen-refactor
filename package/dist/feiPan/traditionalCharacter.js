@@ -31,6 +31,8 @@ function toTraditionalCharacter(panJu) {
 function menToTraditionalCharacter(men) {
     switch (men) {
         default:
+            return "中五";
+        case "休门":
             return "休門";
         case "死门":
             return "死門";
