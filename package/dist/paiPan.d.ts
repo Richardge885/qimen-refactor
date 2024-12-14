@@ -1,5 +1,5 @@
-import { FullTimeInformation, JiuGongXinXi } from "./feiPan/interfaces";
-import { PaipanTime } from "./common-methods/timeInterface";
+import { PanJuInformation } from './feiPan/interfaces';
+import { PaipanTime } from './common-methods/timeInterface';
 interface PaiPanInput {
     paipanMethod?: string;
     time: PaipanTime;
@@ -13,13 +13,5 @@ interface AdditionalSettings {
     traditionalCharacters: boolean;
     singleCharacter: boolean;
 }
-interface PaiPanResult {
-    allTimeInformation: FullTimeInformation;
-    zhiFu: string;
-    zhiShi: string;
-    xunShou: string;
-    huanJu: JiuGongXinXi;
-    panJuResult: JiuGongXinXi;
-}
-export declare function paipan({ paipanMethod, time, baoshuMethod, baoshu, chaiBu, ziXuanJu, additionalSettings, }: PaiPanInput): PaiPanResult;
+export declare function paipan({ paipanMethod, time, baoshuMethod, baoshu, chaiBu, ziXuanJu, additionalSettings, }: PaiPanInput): PanJuInformation;
 export {};

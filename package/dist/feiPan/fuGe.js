@@ -15,406 +15,406 @@ function putInFuGe(panJu) {
 }
 function getFuGe(tianPanGan, diPanGan, men, xing, gong) {
     let result = {
-        ganGong: "",
-        menGong: "",
-        xingGong: "",
+        ganGong: '',
+        menGong: '',
+        xingGong: '',
     };
-    if ((tianPanGan == "甲" && diPanGan == "乙") ||
-        (tianPanGan == "乙" && diPanGan == "甲")) {
+    if ((tianPanGan == '甲' && diPanGan == '乙') ||
+        (tianPanGan == '乙' && diPanGan == '甲')) {
         switch (gong) {
-            case "乾":
+            case '乾':
                 result.ganGong = feiPanGeJu_1.fuGe.liFa;
                 break;
-            case "兑":
+            case '兑':
                 result.ganGong = feiPanGeJu_1.fuGe.liFa;
                 break;
-            case "离":
+            case '离':
                 result.ganGong = feiPanGeJu_1.fuGe.fenLin;
                 break;
-            case "震":
+            case '震':
                 result.ganGong = feiPanGeJu_1.fuGe.quZhi;
                 break;
-            case "巽":
+            case '巽':
                 result.ganGong = feiPanGeJu_1.fuGe.quZhi;
                 break;
-            case "坎":
+            case '坎':
                 result.ganGong = feiPanGeJu_1.fuGe.taiXi;
                 break;
-            case "艮":
+            case '艮':
                 result.ganGong = feiPanGeJu_1.fuGe.xinChuang;
                 break;
-            case "坤":
+            case '坤':
                 result.ganGong = feiPanGeJu_1.fuGe.xinChuang;
                 break;
-            case "中":
+            case '中':
                 result.ganGong = feiPanGeJu_1.fuGe.xinChuang;
                 break;
         }
     }
-    else if ((tianPanGan == "丙" && diPanGan == "丁") ||
-        (tianPanGan == "丁" && diPanGan == "丙")) {
+    else if ((tianPanGan == '丙' && diPanGan == '丁') ||
+        (tianPanGan == '丁' && diPanGan == '丙')) {
         switch (gong) {
-            case "乾":
+            case '乾':
                 result.ganGong = feiPanGeJu_1.fuGe.douLi;
                 break;
-            case "兑":
+            case '兑':
                 result.ganGong = feiPanGeJu_1.fuGe.douLi;
                 break;
-            case "离":
+            case '离':
                 result.ganGong = feiPanGeJu_1.fuGe.yanShang;
                 break;
-            case "震":
+            case '震':
                 result.ganGong = feiPanGeJu_1.fuGe.zengHui;
                 break;
-            case "巽":
+            case '巽':
                 result.ganGong = feiPanGeJu_1.fuGe.zengHui;
                 break;
-            case "坎":
+            case '坎':
                 result.ganGong = feiPanGeJu_1.fuGe.yanMu;
                 break;
-            case "艮":
+            case '艮':
                 result.ganGong = feiPanGeJu_1.fuGe.shiGuang;
                 break;
-            case "坤":
+            case '坤':
                 result.ganGong = feiPanGeJu_1.fuGe.shiGuang;
                 break;
-            case "中":
+            case '中':
                 result.ganGong = feiPanGeJu_1.fuGe.shiGuang;
                 break;
         }
     }
-    else if ((tianPanGan == "戊" && diPanGan == "己") ||
-        (tianPanGan == "己" && diPanGan == "戊")) {
+    else if ((tianPanGan == '戊' && diPanGan == '己') ||
+        (tianPanGan == '己' && diPanGan == '戊')) {
         switch (gong) {
-            case "乾":
+            case '乾':
                 result.ganGong = feiPanGeJu_1.fuGe.jueJing;
                 break;
-            case "兑":
+            case '兑':
                 result.ganGong = feiPanGeJu_1.fuGe.jueJing;
                 break;
-            case "离":
+            case '离':
                 result.ganGong = feiPanGeJu_1.fuGe.bianXiang;
                 break;
-            case "震":
+            case '震':
                 result.ganGong = feiPanGeJu_1.fuGe.huaiTi;
                 break;
-            case "巽":
+            case '巽':
                 result.ganGong = feiPanGeJu_1.fuGe.huaiTi;
                 break;
-            case "坎":
+            case '坎':
                 result.ganGong = feiPanGeJu_1.fuGe.poShui;
                 break;
-            case "艮":
+            case '艮':
                 result.ganGong = feiPanGeJu_1.fuGe.jiaSe;
                 break;
-            case "坤":
+            case '坤':
                 result.ganGong = feiPanGeJu_1.fuGe.jiaSe;
                 break;
-            case "中":
+            case '中':
                 result.ganGong = feiPanGeJu_1.fuGe.jiaSe;
                 break;
         }
     }
-    else if ((tianPanGan == "庚" && diPanGan == "辛") ||
-        (tianPanGan == "辛" && diPanGan == "庚")) {
+    else if ((tianPanGan == '庚' && diPanGan == '辛') ||
+        (tianPanGan == '辛' && diPanGan == '庚')) {
         switch (gong) {
-            case "乾":
+            case '乾':
                 result.ganGong = feiPanGeJu_1.fuGe.congGe;
                 break;
-            case "兑":
+            case '兑':
                 result.ganGong = feiPanGeJu_1.fuGe.congGe;
                 break;
-            case "离":
+            case '离':
                 result.ganGong = feiPanGeJu_1.fuGe.biKou;
                 break;
-            case "震":
+            case '震':
                 result.ganGong = feiPanGeJu_1.fuGe.fengRen;
                 break;
-            case "巽":
+            case '巽':
                 result.ganGong = feiPanGeJu_1.fuGe.fengRen;
                 break;
-            case "坎":
+            case '坎':
                 result.ganGong = feiPanGeJu_1.fuGe.xiejin;
                 break;
-            case "艮":
+            case '艮':
                 result.ganGong = feiPanGeJu_1.fuGe.yangWei;
                 break;
-            case "坤":
+            case '坤':
                 result.ganGong = feiPanGeJu_1.fuGe.yangWei;
                 break;
-            case "中":
+            case '中':
                 result.ganGong = feiPanGeJu_1.fuGe.yangWei;
                 break;
         }
     }
-    else if ((tianPanGan == "壬" && diPanGan == "癸") ||
-        (tianPanGan == "癸" && diPanGan == "壬")) {
+    else if ((tianPanGan == '壬' && diPanGan == '癸') ||
+        (tianPanGan == '癸' && diPanGan == '壬')) {
         switch (gong) {
-            case "乾":
+            case '乾':
                 result.ganGong = feiPanGeJu_1.fuGe.tongGuan;
                 break;
-            case "兑":
+            case '兑':
                 result.ganGong = feiPanGeJu_1.fuGe.tongGuan;
                 break;
-            case "离":
+            case '离':
                 result.ganGong = feiPanGeJu_1.fuGe.mieRun;
                 break;
-            case "震":
+            case '震':
                 result.ganGong = feiPanGeJu_1.fuGe.baiYuan;
                 break;
-            case "巽":
+            case '巽':
                 result.ganGong = feiPanGeJu_1.fuGe.baiYuan;
                 break;
-            case "坎":
+            case '坎':
                 result.ganGong = feiPanGeJu_1.fuGe.runXia;
                 break;
-            case "艮":
+            case '艮':
                 result.ganGong = feiPanGeJu_1.fuGe.jueJi;
                 break;
-            case "坤":
+            case '坤':
                 result.ganGong = feiPanGeJu_1.fuGe.jueJi;
                 break;
-            case "中":
+            case '中':
                 result.ganGong = feiPanGeJu_1.fuGe.jueJi;
                 break;
         }
     }
     switch (men) {
         default:
-            result.menGong = "";
+            result.menGong = '';
             break;
-        case "休门":
+        case '休门':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "兑":
+                case '兑':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "离":
+                case '离':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "震":
+                case '震':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "巽":
+                case '巽':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "坎":
+                case '坎':
                     result.menGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "艮":
+                case '艮':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "坤":
+                case '坤':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "中":
+                case '中':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
             }
             break;
-        case "死门":
+        case '死门':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "兑":
+                case '兑':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "离":
+                case '离':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "震":
+                case '震':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "巽":
+                case '巽':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "坎":
+                case '坎':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "艮":
+                case '艮':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "坤":
+                case '坤':
                     result.menGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "中":
+                case '中':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
             }
             break;
-        case "伤门":
+        case '伤门':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "兑":
+                case '兑':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "离":
+                case '离':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "震":
+                case '震':
                     result.menGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "坎":
+                case '坎':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "艮":
+                case '艮':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "坤":
+                case '坤':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "中":
+                case '中':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
             }
             break;
-        case "杜门":
+        case '杜门':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "兑":
+                case '兑':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "离":
+                case '离':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "巽":
+                case '巽':
                     result.menGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "坎":
+                case '坎':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "艮":
+                case '艮':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "坤":
+                case '坤':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "中":
+                case '中':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
             }
             break;
-        case "开门":
+        case '开门':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.menGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "离":
+                case '离':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "震":
+                case '震':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "巽":
+                case '巽':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "坎":
+                case '坎':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "艮":
+                case '艮':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "坤":
+                case '坤':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "中":
+                case '中':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
             }
             break;
-        case "惊门":
+        case '惊门':
             switch (gong) {
-                case "兑":
+                case '兑':
                     result.menGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "离":
+                case '离':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "震":
+                case '震':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "巽":
+                case '巽':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "坎":
+                case '坎':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "艮":
+                case '艮':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "坤":
+                case '坤':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "中":
+                case '中':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
             }
             break;
-        case "生门":
+        case '生门':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "兑":
+                case '兑':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "离":
+                case '离':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "震":
+                case '震':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "巽":
+                case '巽':
                     result.menGong = feiPanGeJu_1.fuGe.menShouZhi;
                     break;
-                case "坎":
+                case '坎':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "艮":
+                case '艮':
                     result.menGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "坤":
+                case '坤':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "中":
+                case '中':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
             }
             break;
-        case "景门":
+        case '景门':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "兑":
+                case '兑':
                     result.menGong = feiPanGeJu_1.fuGe.menPo;
                     break;
-                case "离":
+                case '离':
                     result.menGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "震":
+                case '震':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "巽":
+                case '巽':
                     result.menGong = feiPanGeJu_1.fuGe.jieYi;
                     break;
-                case "坎":
+                case '坎':
                     result.menGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "艮":
+                case '艮':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "坤":
+                case '坤':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
-                case "中":
+                case '中':
                     result.menGong = feiPanGeJu_1.fuGe.jiaoHe;
                     break;
             }
@@ -423,99 +423,99 @@ function getFuGe(tianPanGan, diPanGan, men, xing, gong) {
     switch (xing) {
         default:
             switch (gong) {
-                case "离":
+                case '离':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "坎":
+                case '坎':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
             }
             break;
-        case "天芮":
+        case '天芮':
             switch (gong) {
-                case "艮":
+                case '艮':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "坤":
+                case '坤':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "中":
+                case '中':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
             }
             break;
-        case "天冲":
+        case '天冲':
             switch (gong) {
-                case "兑":
+                case '兑':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "震":
+                case '震':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
             }
             break;
-        case "天辅":
+        case '天辅':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "巽":
+                case '巽':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
             }
             break;
-        case "天禽":
+        case '天禽':
             switch (gong) {
-                case "艮":
+                case '艮':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "坤":
+                case '坤':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "中":
+                case '中':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
             }
             break;
-        case "天心":
+        case '天心':
             switch (gong) {
-                case "乾":
+                case '乾':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "巽":
+                case '巽':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
             }
             break;
-        case "天柱":
+        case '天柱':
             switch (gong) {
-                case "兑":
+                case '兑':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "震":
+                case '震':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
             }
             break;
-        case "天任":
+        case '天任':
             switch (gong) {
-                case "艮":
+                case '艮':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "坤":
+                case '坤':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
-                case "中":
+                case '中':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
             }
             break;
-        case "天英":
+        case '天英':
             switch (gong) {
-                case "离":
+                case '离':
                     result.xingGong = feiPanGeJu_1.fuGe.fuYin;
                     break;
-                case "坎":
+                case '坎':
                     result.xingGong = feiPanGeJu_1.fuGe.fanYin;
                     break;
             }

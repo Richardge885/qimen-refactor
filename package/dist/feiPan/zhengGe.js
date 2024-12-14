@@ -23,358 +23,358 @@ function getZhengGe(zuHe) {
     let result = [];
     switch (zuHe) {
         default:
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.muFuYin;
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.muFuYin;
             break;
-        case "甲乙":
+        case '甲乙':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             break;
-        case "甲丙":
+        case '甲丙':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.haoQi;
             break;
-        case "甲丁":
+        case '甲丁':
             result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
             break;
-        case "甲戊":
+        case '甲戊':
             result[0] = feiPanGeJu_1.zhengGe.waiZhi;
             break;
-        case "甲己":
-            result[0] = feiPanGeJu_1.zhengGe.shangHe + "\n" + feiPanGeJu_1.zhengGe.heTu;
+        case '甲己':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heTu;
             result[1] = feiPanGeJu_1.zhengGe.waiQin;
             break;
-        case "甲庚":
-            result[0] = feiPanGeJu_1.zhengGe.beiChong + "\n" + feiPanGeJu_1.zhengGe.muChong;
+        case '甲庚':
+            result[0] = feiPanGeJu_1.zhengGe.beiChong + '\n' + feiPanGeJu_1.zhengGe.muChong;
             result[1] = feiPanGeJu_1.zhengGe.neiZhi;
             break;
-        case "甲辛":
+        case '甲辛':
             result[0] = feiPanGeJu_1.zhengGe.neiHai;
             break;
-        case "甲壬":
+        case '甲壬':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.chengQuan;
             break;
-        case "甲癸":
+        case '甲癸':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             result[1] = feiPanGeJu_1.zhengGe.deMu;
             break;
-        case "乙甲":
+        case '乙甲':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             break;
-        case "乙乙":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin;
+        case '乙乙':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.muFuYin;
             break;
-        case "乙丙":
+        case '乙丙':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
             break;
-        case "乙丁":
+        case '乙丁':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.duoQuan;
             break;
-        case "乙戊":
+        case '乙戊':
             result[0] = feiPanGeJu_1.zhengGe.waiHai;
             break;
-        case "乙己":
+        case '乙己':
             result[0] = feiPanGeJu_1.zhengGe.waiLuan;
             break;
-        case "乙庚":
-            result[0] = feiPanGeJu_1.zhengGe.shangHe + "\n" + feiPanGeJu_1.zhengGe.heJin;
+        case '乙庚':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heJin;
             result[1] = feiPanGeJu_1.zhengGe.neiQin;
             break;
-        case "乙辛":
-            result[0] = feiPanGeJu_1.zhengGe.beiChong + "\n" + feiPanGeJu_1.zhengGe.muChong;
+        case '乙辛':
+            result[0] = feiPanGeJu_1.zhengGe.beiChong + '\n' + feiPanGeJu_1.zhengGe.muChong;
             result[1] = feiPanGeJu_1.zhengGe.neiLuan;
             break;
-        case "乙壬":
+        case '乙壬':
             result[0] = feiPanGeJu_1.zhengGe.huoFu;
             break;
-        case "乙癸":
+        case '乙癸':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.yiShi;
             break;
-        case "丙甲":
+        case '丙甲':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.chengQuan;
             break;
-        case "丙乙":
+        case '丙乙':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             result[1] = feiPanGeJu_1.zhengGe.deMu;
             break;
-        case "丙丙":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.huoFuYin;
+        case '丙丙':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.huoFuYin;
             break;
-        case "丙丁":
+        case '丙丁':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             break;
-        case "丙戊":
+        case '丙戊':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.haoQi;
             break;
-        case "丙己":
+        case '丙己':
             result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
             break;
-        case "丙庚":
+        case '丙庚':
             result[0] = feiPanGeJu_1.zhengGe.waiZhi;
             break;
-        case "丙辛":
-            result[0] = feiPanGeJu_1.zhengGe.shangHe + "\n" + feiPanGeJu_1.zhengGe.heShui;
+        case '丙辛':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heShui;
             result[1] = feiPanGeJu_1.zhengGe.waiQin;
             break;
-        case "丙壬":
-            result[0] = feiPanGeJu_1.zhengGe.beiChong + "\n" + feiPanGeJu_1.zhengGe.huoChong;
+        case '丙壬':
+            result[0] = feiPanGeJu_1.zhengGe.beiChong + '\n' + feiPanGeJu_1.zhengGe.huoChong;
             result[1] = feiPanGeJu_1.zhengGe.neiZhi;
             break;
-        case "丙癸":
+        case '丙癸':
             result[0] = feiPanGeJu_1.zhengGe.neiHai;
             break;
-        case "丁甲":
+        case '丁甲':
             result[0] = feiPanGeJu_1.zhengGe.huoFu;
             break;
-        case "丁乙":
+        case '丁乙':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.yiShi;
             break;
-        case "丁丙":
+        case '丁丙':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             break;
-        case "丁丁":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.huoFuYin;
+        case '丁丁':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.huoFuYin;
             break;
-        case "丁戊":
+        case '丁戊':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
             break;
-        case "丁己":
+        case '丁己':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.duoQuan;
             break;
-        case "丁庚":
+        case '丁庚':
             result[0] = feiPanGeJu_1.zhengGe.waiHai;
             break;
-        case "丁辛":
+        case '丁辛':
             result[0] = feiPanGeJu_1.zhengGe.waiLuan;
             break;
-        case "丁壬":
-            result[0] = feiPanGeJu_1.zhengGe.shangHe + "\n" + feiPanGeJu_1.zhengGe.heMu;
+        case '丁壬':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heMu;
             result[1] = feiPanGeJu_1.zhengGe.neiQin;
             break;
-        case "丁癸":
-            result[0] = feiPanGeJu_1.zhengGe.beiChong + "\n" + feiPanGeJu_1.zhengGe.huoChong;
+        case '丁癸':
+            result[0] = feiPanGeJu_1.zhengGe.beiChong + '\n' + feiPanGeJu_1.zhengGe.huoChong;
             result[1] = feiPanGeJu_1.zhengGe.neiLuan;
             break;
-        case "戊甲":
+        case '戊甲':
             result[0] = feiPanGeJu_1.zhengGe.neiZhi;
             break;
-        case "戊乙":
+        case '戊乙':
             result[0] = feiPanGeJu_1.zhengGe.neiHai;
             break;
-        case "戊丙":
+        case '戊丙':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.chengQuan;
             break;
-        case "戊丁":
+        case '戊丁':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             result[1] = feiPanGeJu_1.zhengGe.deMu;
             break;
-        case "戊戊":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.muFuYin;
+        case '戊戊':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.tuFuYin;
             break;
-        case "戊己":
+        case '戊己':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             break;
-        case "戊庚":
+        case '戊庚':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.haoQi;
             break;
-        case "戊辛":
+        case '戊辛':
             result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
             result[1] = feiPanGeJu_1.zhengGe.zhiPo;
             break;
-        case "戊壬":
+        case '戊壬':
             result[0] = feiPanGeJu_1.zhengGe.waiZhi;
             break;
-        case "戊癸":
-            result[0] = feiPanGeJu_1.zhengGe.shangHe + "\n" + feiPanGeJu_1.zhengGe.heHuo;
+        case '戊癸':
+            result[0] = feiPanGeJu_1.zhengGe.shangHe + '\n' + feiPanGeJu_1.zhengGe.heHuo;
             result[1] = feiPanGeJu_1.zhengGe.waiQin;
             break;
-        case "己甲":
-            result[0] = feiPanGeJu_1.zhengGe.xiaHe + "\n" + feiPanGeJu_1.zhengGe.heTu;
+        case '己甲':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heTu;
             result[1] = feiPanGeJu_1.zhengGe.neiQin;
             break;
-        case "己乙":
+        case '己乙':
             result[0] = feiPanGeJu_1.zhengGe.neiLuan;
             break;
-        case "己丙":
+        case '己丙':
             result[0] = feiPanGeJu_1.zhengGe.huoFu;
             break;
-        case "己丁":
+        case '己丁':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.yiShi;
             break;
-        case "己戊":
+        case '己戊':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             break;
-        case "己己":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.muFuYin;
+        case '己己':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.tuFuYin;
             break;
-        case "己庚":
+        case '己庚':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
             break;
-        case "己辛":
+        case '己辛':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.duoQuan;
             break;
-        case "己壬":
+        case '己壬':
             result[0] = feiPanGeJu_1.zhengGe.waiHai;
             result[1] = feiPanGeJu_1.zhengGe.zhiPo;
             break;
-        case "己癸":
+        case '己癸':
             result[0] = feiPanGeJu_1.zhengGe.waiLuan;
             break;
-        case "庚甲":
-            result[0] = feiPanGeJu_1.zhengGe.zhengChong + "\n" + feiPanGeJu_1.zhengGe.jinChong;
+        case '庚甲':
+            result[0] = feiPanGeJu_1.zhengGe.zhengChong + '\n' + feiPanGeJu_1.zhengGe.jinChong;
             result[1] = feiPanGeJu_1.zhengGe.waiZhi;
             break;
-        case "庚乙":
-            result[0] = feiPanGeJu_1.zhengGe.xiaHe + "\n" + feiPanGeJu_1.zhengGe.heJin;
+        case '庚乙':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heJin;
             result[1] = feiPanGeJu_1.zhengGe.waiQin;
             break;
-        case "庚丙":
+        case '庚丙':
             result[0] = feiPanGeJu_1.zhengGe.neiZhi;
             break;
-        case "庚丁":
+        case '庚丁':
             result[0] = feiPanGeJu_1.zhengGe.neiHai;
             break;
-        case "庚戊":
+        case '庚戊':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.chengQuan;
             break;
-        case "庚己":
+        case '庚己':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             result[1] = feiPanGeJu_1.zhengGe.deMu;
             break;
-        case "庚庚":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.jinFuYin;
+        case '庚庚':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.jinFuYin;
             break;
-        case "庚辛":
+        case '庚辛':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             break;
-        case "庚壬":
+        case '庚壬':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.haoQi;
             break;
-        case "庚癸":
+        case '庚癸':
             result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
             result[1] = feiPanGeJu_1.zhengGe.zhiPo;
             break;
-        case "辛甲":
+        case '辛甲':
             result[0] = feiPanGeJu_1.zhengGe.waiHai;
             break;
-        case "辛乙":
-            result[0] = feiPanGeJu_1.zhengGe.zhengChong + "\n" + feiPanGeJu_1.zhengGe.jinChong;
+        case '辛乙':
+            result[0] = feiPanGeJu_1.zhengGe.zhengChong + '\n' + feiPanGeJu_1.zhengGe.jinChong;
             result[1] = feiPanGeJu_1.zhengGe.waiLuan;
             break;
-        case "辛丙":
-            result[0] = feiPanGeJu_1.zhengGe.xiaHe + "\n" + feiPanGeJu_1.zhengGe.heShui;
+        case '辛丙':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heShui;
             result[1] = feiPanGeJu_1.zhengGe.neiQin;
             break;
-        case "辛丁":
+        case '辛丁':
             result[0] = feiPanGeJu_1.zhengGe.neiLuan;
             break;
-        case "辛戊":
+        case '辛戊':
             result[0] = feiPanGeJu_1.zhengGe.huoFu;
             result[1] = feiPanGeJu_1.zhengGe.zhiPo;
             break;
-        case "辛己":
+        case '辛己':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.yiShi;
             break;
-        case "辛庚":
+        case '辛庚':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             break;
-        case "辛辛":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.jinFuYin;
+        case '辛辛':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.jinFuYin;
             break;
-        case "辛壬":
+        case '辛壬':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
             break;
-        case "辛癸":
+        case '辛癸':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.duoQuan;
             break;
-        case "壬甲":
+        case '壬甲':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.haoQi;
             break;
-        case "壬乙":
+        case '壬乙':
             result[0] = feiPanGeJu_1.zhengGe.jiaoYin;
             break;
-        case "壬丙":
-            result[0] = feiPanGeJu_1.zhengGe.zhengChong + "\n" + feiPanGeJu_1.zhengGe.shuiChong;
+        case '壬丙':
+            result[0] = feiPanGeJu_1.zhengGe.zhengChong + '\n' + feiPanGeJu_1.zhengGe.shuiChong;
             result[1] = feiPanGeJu_1.zhengGe.waiZhi;
             break;
-        case "壬丁":
-            result[0] = feiPanGeJu_1.zhengGe.xiaHe + "\n" + feiPanGeJu_1.zhengGe.heShui;
+        case '壬丁':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heShui;
             result[1] = feiPanGeJu_1.zhengGe.waiQin;
             break;
-        case "壬戊":
+        case '壬戊':
             result[0] = feiPanGeJu_1.zhengGe.neiZhi;
             break;
-        case "壬己":
+        case '壬己':
             result[0] = feiPanGeJu_1.zhengGe.neiHai;
             result[1] = feiPanGeJu_1.zhengGe.zhiPo;
             break;
-        case "壬庚":
+        case '壬庚':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.chengQuan;
             break;
-        case "壬辛":
+        case '壬辛':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             result[1] = feiPanGeJu_1.zhengGe.deMu;
             break;
-        case "壬壬":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.shuiFuYin;
+        case '壬壬':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.shuiFuYin;
             break;
-        case "壬癸":
+        case '壬癸':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             break;
-        case "癸甲":
+        case '癸甲':
             result[0] = feiPanGeJu_1.zhengGe.jinRu;
             result[1] = feiPanGeJu_1.zhengGe.jiaoYang;
             break;
-        case "癸乙":
+        case '癸乙':
             result[0] = feiPanGeJu_1.zhengGe.qianJian;
             result[1] = feiPanGeJu_1.zhengGe.duoQuan;
             break;
-        case "癸丙":
+        case '癸丙':
             result[0] = feiPanGeJu_1.zhengGe.waiHai;
             break;
-        case "癸丁":
-            result[0] = feiPanGeJu_1.zhengGe.zhengChong + "\n" + feiPanGeJu_1.zhengGe.shuiChong;
+        case '癸丁':
+            result[0] = feiPanGeJu_1.zhengGe.zhengChong + '\n' + feiPanGeJu_1.zhengGe.shuiChong;
             result[1] = feiPanGeJu_1.zhengGe.waiLuan;
             break;
-        case "癸戊":
-            result[0] = feiPanGeJu_1.zhengGe.xiaHe + "\n" + feiPanGeJu_1.zhengGe.heHuo;
+        case '癸戊':
+            result[0] = feiPanGeJu_1.zhengGe.xiaHe + '\n' + feiPanGeJu_1.zhengGe.heHuo;
             result[1] = feiPanGeJu_1.zhengGe.neiQin;
             break;
-        case "癸己":
+        case '癸己':
             result[0] = feiPanGeJu_1.zhengGe.neiLuan;
             break;
-        case "癸庚":
+        case '癸庚':
             result[0] = feiPanGeJu_1.zhengGe.huoFu;
             result[1] = feiPanGeJu_1.zhengGe.zhiPo;
             break;
-        case "癸辛":
+        case '癸辛':
             result[0] = feiPanGeJu_1.zhengGe.houJian;
             result[1] = feiPanGeJu_1.zhengGe.yiShi;
             break;
-        case "癸壬":
+        case '癸壬':
             result[0] = feiPanGeJu_1.zhengGe.tuiRu;
             break;
-        case "癸癸":
-            result[0] = feiPanGeJu_1.zhengGe.fuYin + "\n" + feiPanGeJu_1.zhengGe.shuiFuYin;
+        case '癸癸':
+            result[0] = feiPanGeJu_1.zhengGe.fuYin + '\n' + feiPanGeJu_1.zhengGe.shuiFuYin;
             break;
     }
     return result;

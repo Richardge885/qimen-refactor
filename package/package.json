@@ -1,21 +1,21 @@
 {
-  "name": "qimen-mingfa",
-  "version": "1.0.14",
-  "description": "飞盘奇门鸣法排片后端",
-  "main": "dist/paiPan.js",
-  "scripts": {},
-  "keywords": [
-    "奇门",
-    "飞盘奇门",
-    "奇门鸣法"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Richardge885/qimen-refactor"
-  },
-  "author": "Richard Ge",
-  "license": "MIT",
-  "dependencies": {
-    "lunar-typescript": "^1.7.5"
-  }
+    "name": "qimen-mingfa",
+    "version": "1.0.21",
+    "description": "飞盘奇门鸣法排片后端",
+    "main": "dist/paiPan.js",
+    "scripts": {},
+    "keywords": [
+        "奇门",
+        "飞盘奇门",
+        "奇门鸣法"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Richardge885/qimen-refactor"
+    },
+    "author": "Richard Ge",
+    "license": "MIT",
+    "dependencies": {
+        "lunar-typescript": "^1.7.5"
+    }
 }

@@ -4,9 +4,9 @@ exports.paipan = paipan;
 const lunarLibrary_1 = require("./common-methods/lunarLibrary");
 const dingJu_1 = require("./common-methods/dingJu/dingJu");
 const feiPanMain_1 = require("./feiPan/feiPanMain");
-function paipan({ paipanMethod = "飞盘", time, baoshuMethod = "", baoshu = 0, chaiBu = true, ziXuanJu = "", additionalSettings, }) {
+function paipan({ paipanMethod = '飞盘', time, baoshuMethod = '', baoshu = 0, chaiBu = true, ziXuanJu = '', additionalSettings, }) {
     if (baoshu === 0) {
-        baoshuMethod = "";
+        baoshuMethod = '';
     }
     const timeData = (0, lunarLibrary_1.getTimeInfo)(time, baoshuMethod, baoshu);
     let paipanResult;
@@ -34,9 +34,9 @@ function paipan({ paipanMethod = "飞盘", time, baoshuMethod = "", baoshu = 0, 
     };
     switch (paipanMethod) {
         default:
-            paipanResult = (0, feiPanMain_1.paiFeiPan)(fullTimeInformation, additionalSettings);
+            paipanResult = (0, feiPanMain_1.paiFeiPan)(fullTimeInformation, additionalSettings, baoshuMethod, baoshu, ziXuanJu);
             break;
-        case "转盘":
+        case '转盘':
             break;
     }
     return paipanResult;
